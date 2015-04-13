@@ -25,7 +25,8 @@
     "mocha": "~2.2.1",
     "should": "~5.2.0",
     "expect": "~1.6.0",
-    "bluebird": "~2.9.21"
+    "bluebird": "~2.9.21",
+    "bcrypt": "~0.8.2"
   },
   "devDependencies": {
     "bluebird": "^2.9.21",
