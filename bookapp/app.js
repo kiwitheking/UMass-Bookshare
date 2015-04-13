@@ -2,6 +2,7 @@ var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
+var bcrypt = require('bcrypt'); //encryption module
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var db = require('DB_Interface.js')
@@ -23,7 +24,7 @@ app.use(session({
 
 var pg = require('pg');
 //put in your own connection here
-var conString = "postgres://postgres:password@localhost/UMass-Books";
+var conString = "postgres://postgres:postgres@localhost/UMass-Books";
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -43,42 +44,25 @@ app.use('/', express.static(path.join(__dirname, 'views')));
 app.use('/', login);
 
 app.post('/', function(req, res) {
-  db.loginUser(req.body.username,req.body.password,res,req);
-  //   pg.connect(conString, function(err, client) {
-  //   var query = client.query({
-  //     text: 'Select * from users where username =$1 and password =$2',
-  //     values: [req.body.username, req.body.password]
-  //   });
-  //   query.on('row', function(row) {
-  //     console.log(row);
-  //        if (!row) {
-  //           console.log('client is ending');
-  //           client.end();
-  //           res.render('/', { message: 'Invalid email or password.' });
-
-  //         } else {
-  //           if (req.body.password === row.password.replace(/\s+/g,'')) {
-  //             // sets a cookie with the user's info
-  //             req.session.user = row.username;
-  //             console.log('redirect');
-  //             res.redirect('/profile');
-  //           } else {
-
-  //             res.render('/', { message: 'Invalid email or password.' });
-  //           }
-  //         }
-  //   });
-  // });
+    db.loginUser(req.body.username, req.body.password, res, req);
 });
-
+  
 //Home page
 app.get('/home', function(req, res){
+  if(req.session.user) {
     res.render('home');
+  } else {
+    res.redirect('/');
+  }
 });
 
 //get createlisting page
 app.get('/createlisting', function(req, res) {
-  res.render('createlisting',{message:''});
+  if(req.session.user) {
+    res.render('createlisting',{message:''});
+  } else {
+    res.redirect('/');
+  }
 });
 
 //post createlisting
@@ -101,42 +85,12 @@ app.post('/createlisting', function(req, res) {
   }
 });
 
-//searching for a book on the home page
-// the /home needs to be the name of form action in home.ejs
-
-// app.post('/home', function(req, res){
-//   pg.connect(conString, function(err, client){
-//     var query = client.query({
-//       text:'SELECT listing.listid, book.title, listing.isbn13, listing.username FROM listing INNER JOIN book ON listing.isbn13=book.isbn13 where UPPER(book.title) LIKE Upper($1);',
-//       values: [req.body.searchTerm]
-//     });
-//     query.on('row', function(row){
-//       //if found, show all users that have it. this if statement needs to be changed, not right
-//       if(row){
-//         console.log('LISTING');
-//         console.log("title: " +row.title);
-//         console.log("listing ID: " +row.listid);
-//         console.log("username: " +row.username);
-//         console.log("---------------------");
-//       }
-//       //if not found, currently does not return. this is wrong
-//       else{
-//         console.log('Book was not found :(');
-//       }
-//     });
-//   });
-// });
-
 // Don't post on homepage
 app.post('/home', function(req,res){
   search = req.body.searchTerm;
   //db.searchBook(search, renderHome(res,record));
   db.postBookListing(search, res);
 });
-
-// function renderHome(res, record){
-//   res.render('home',record);
-// }
 
 app.get('/profile', function(req, res) {
   if (req.session && req.session.user) { // Check if session exists
@@ -193,6 +147,9 @@ var doNothing = function doNothing_(value)
   console.log(value);
 }
 
+/*bcrypt.genSalt(10, function(err, salt){
+  bcrypt.hash()
+})*/
 //handles signup post, slow but uses db interface
 app.post('/signup',function(req,res){
   username = req.body.username;
@@ -204,33 +161,14 @@ app.post('/signup',function(req,res){
   school = req.body.institution;
   age = 0;
   sex = 'o';
-  db.checkUser(username, password, age, fname, lname, sex, email, phone, school, res,req);
-//     pg.connect(conString, function(err, client) {
-//     var query = client.query({
-//       text: 'Select * from users where username =$1',
-//       values: [username]
-//     });
-//     query.on('row', function(row) {
-//          if (row) {
-
-//           console.log('username taken');
-//             res.render('signup', { message: 'Username taken' });
-//             // req.session.user = username;
-//             // db.addUserBasic(username, password, age, fname, lname, sex, email, phone, school,res);
-//           } else {
-//             // window.alert("This username is not available. Please try another.");
-//             // console.log('username taken');
-//             // res.render('signup', { message: 'Username taken' });
-//             // client.end();
-
-//              req.session.user = username;
-//             db.addUserBasic(username, password, age, fname, lname, sex, email, phone, school,res);
-//           }
-//     });
-  
-//   //res.redirect('/profile');
-// });
+  //creates a hashed password
+  bcrypt.hash(password, 10, function(err, hash) {
+    console.log('hash' , hash)
+    password = hash;
+    db.checkUser(username, password, age, fname, lname, sex, email, phone, school, res, req);
+  });
 });
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
