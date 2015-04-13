@@ -50,7 +50,7 @@ app.post('/', function(req, res) {
 //Home page
 app.get('/home', function(req, res){
   if(req.session.user) {
-    res.render('home');
+    db.recentListing(res,req);
   } else {
     res.redirect('/');
   }
