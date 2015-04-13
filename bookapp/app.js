@@ -2,7 +2,7 @@ var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
-var bcrypt = require('bcrypt'); //encryption module
+var bcrypt = require('bcrypt'); 
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var db = require('DB_Interface.js')
@@ -77,8 +77,6 @@ app.post('/createlisting', function(req, res) {
     available = req.body.available;
     db.makeListing(username, isbn13, forRent, forSale, forBorrow, available);
     res.render('createlisting',{message:'Listing created'});
-    // for field checks
-    // res.render('createlisting',{message:'Invalid input. Please try again.'});
   } else {
     res.render('login',{message:'You must login to create a listing.'});
     // res.redirect('/createlisting',{message:'Listing not created'});
@@ -147,9 +145,6 @@ var doNothing = function doNothing_(value)
   console.log(value);
 }
 
-/*bcrypt.genSalt(10, function(err, salt){
-  bcrypt.hash()
-})*/
 //handles signup post, slow but uses db interface
 app.post('/signup',function(req,res){
   username = req.body.username;
