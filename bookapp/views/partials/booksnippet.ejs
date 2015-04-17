@@ -2,11 +2,25 @@
   <div class="thumbnail">
     <img src="/homepage_files/320x150">
     <div class="caption">
-      <h4 class="pull-right">$<%=data.price%></h4>
-      <h4><a href="#"><%=data.title%></a></h4>
-      <h6>by <%=data.author%></h6>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vulputate orci dapibus....</p>
-    </div>
+
+      <h5><a href="#"><%=data.title%> (Edition: <%=data.version%>)</a>
+        <br>by <%=data.author%>
+      </h5>
+
+      <h5><%= "Selling Price: $"+data.sellprice %>
+        <br><%= "Rent Price: $"+data.rentprice %>
+      </h5>
+      
+      <!-- TODO: only show snippet -->
+      <p>
+        <% if(data.description === null) { %>
+          <%= "Description: No description." %>
+        <% } else {%>
+          <%= "Description: " + data.description %>
+        <% } %>
+      </p>
+
+    </div> <!-- caption -->
 
     <!--Implement ratings later...-->
     <!-- <div class="ratings">

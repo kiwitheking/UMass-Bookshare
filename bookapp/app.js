@@ -8,8 +8,6 @@ var bodyParser = require('body-parser');
 var db = require('DB_Interface.js')
 var login = require('./routes/login');
 var profile = require('./routes/profile');
-var wishlist = require('./routes/wishlist');
-//ADDED THIS
 var sequelize = require('sequelize');
 
 var app = express();
@@ -25,7 +23,7 @@ app.use(session({
 
 var pg = require('pg');
 //put in your own connection here
-var conString = "postgres://postgres:postgres@localhost/UMass-Books";
+var conString = "postgres://postgres:password@localhost/UMass-Books";
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -44,11 +42,10 @@ app.use('/', express.static(path.join(__dirname, 'views')));
 
 app.use('/', login);
 
-//login 
 app.post('/', function(req, res) {
-    db.loginUser(req.body.username, req.body.password, res, req);
+  db.loginUser(req.body.username,req.body.password,res,req);
 });
-  
+
 //Home page
 app.get('/home', function(req, res){
   if(req.session.user) {
@@ -74,23 +71,29 @@ app.post('/createlisting', function(req, res) {
     username = req.body.username;
     isbn13 = req.body.isbn13;
     forRent = req.body.forRent;
+    rentPrice = req.body.rentPrice;
     forSale = req.body.forSale;
+    sellPrice = req.body.sellPrice;
     forBorrow = req.body.forBorrow;
     available = req.body.available;
-    db.makeListing(username, isbn13, forRent, forSale, forBorrow, available);
+    description = req.body.description;
+    db.makeListing(username, isbn13, forRent, rentPrice, forSale, sellPrice, forBorrow, available, description);
     res.render('createlisting',{message:'Listing created'});
+    // for field checks
+    // res.render('createlisting',{message:'Invalid input. Please try again.'});
   } else {
     res.render('login',{message:'You must login to create a listing.'});
     // res.redirect('/createlisting',{message:'Listing not created'});
   }
 });
 
-// Don't post on homepage
+
 app.post('/home', function(req,res){
   search = req.body.searchTerm;
   //db.searchBook(search, renderHome(res,record));
   db.postBookListing(search, res);
 });
+
 
 app.get('/profile', function(req, res) {
   if (req.session && req.session.user) { // Check if session exists
@@ -158,22 +161,12 @@ app.post('/signup',function(req,res){
   school = req.body.institution;
   age = 0;
   sex = 'o';
-  //creates a hashed password
   bcrypt.hash(password, 10, function(err, hash) {
     console.log('hash' , hash)
     password = hash;
     db.checkUser(username, password, age, fname, lname, sex, email, phone, school, res, req);
   });
 });
-
-app.get('/wishlist', function(req, res) {
-  if(req.session.user) {
-    res.render('wishlist');
-  } else {
-    res.redirect('/');
-  }
-});
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

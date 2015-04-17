@@ -2,12 +2,30 @@
   <div class="thumbnail">
     <img src="/homepage_files/320x150">
     <div class="caption">
-      <h4 class="pull-right">$<%= hi[i].price %></h4>
-      <h4><a href="#">Some Book Title</a></h4>
-      <h6>by Some Author</h6>
-      <h6><%= "List ID: " +hi[i].listid + " Username: " + hi[i].username + " ISBN 13: " +hi[i].isbn13 %><h6>
-      <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vulputate orci dapibus....</p>
-    </div>
+
+    <!-- Need listibg-books join to get titel and author -->
+      <h5><a href="#"><%= data.title %> (Edition: <%=data.version%>)</a>
+        <br>by <%= data.author %>
+      </h5>
+
+      <h6><%= "ISBN-13: " + data.isbn13 %>
+        <br><%= "Posted by: " + data.username %>
+      <h6>
+
+      <h5><%= "Selling Price: $"+data.sellprice %>
+        <br><%= "Rent Price: $"+data.rentprice %>
+      </h5>
+
+      <!-- TODO: only show snippet -->
+      <p>
+        <% if(data.description === null) { %>
+          <%= "Description: No description." %>
+        <% } else {%>
+          <%= "Description: " + data.description %>
+        <% } %>
+      </p>
+
+    </div> <!-- caption -->
 
     <!--Implement ratings later...-->
     <!-- <div class="ratings">

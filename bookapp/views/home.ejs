@@ -19,13 +19,12 @@
         <% include partials/carousel.ejs %>
 
         <!--Search results-->
-          <div class="row search-results">
-            <% for(var i = 0; i < recent.length; i++) { %>
-
-              <%- include('partials/booksnippet.ejs', {data: recent[i]}) %>                  
-            <% } %>
-
-          </div><!--Search results-->
+        <div class="row search-results">
+          <% for(var i = 0; i < recent.length; i++) { %>
+            <%- include('partials/booksnippet.ejs', {data: recent[i]}) %>
+          <% } %>
+          
+        </div><!--Search results-->
         <!-- Add pagination -->
       </div><!--Homepage stuff-->
 
