@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var db = require('DB_Interface.js')
 var login = require('./routes/login');
 var profile = require('./routes/profile');
+var wishlist = require('./routes/wishlist');
 //ADDED THIS
 var sequelize = require('sequelize');
 
@@ -43,6 +44,7 @@ app.use('/', express.static(path.join(__dirname, 'views')));
 
 app.use('/', login);
 
+//login 
 app.post('/', function(req, res) {
     db.loginUser(req.body.username, req.body.password, res, req);
 });
@@ -162,6 +164,14 @@ app.post('/signup',function(req,res){
     password = hash;
     db.checkUser(username, password, age, fname, lname, sex, email, phone, school, res, req);
   });
+});
+
+app.get('/wishlist', function(req, res) {
+  if(req.session.user) {
+    res.render('wishlist');
+  } else {
+    res.redirect('/');
+  }
 });
 
 // catch 404 and forward to error handler
