@@ -19,8 +19,8 @@
 
         <!-- search results -->
         <div class="row search-results">
-          <% for(var i = 0; i < 9; i++) { %>
-            <% include partials/resultbox.ejs %>
+          <% for(var i = 0; i < hi.length; i++) { %>
+            <%- include('partials/resultbox.ejs', {data: hi[i]}) %>   
           <% } %>
         </div> <!-- row search-results -->
         <!-- Add pagination -->

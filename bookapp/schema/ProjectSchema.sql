@@ -36,11 +36,13 @@ create table Listing(
 	username CHAR(20),
 	isbn13 CHAR(13),
 	forRent BOOLEAN,
+	rentPrice CHAR(10),
 	forSale BOOLEAN,
+	sellPrice CHAR(10),
 	forBorrow BOOLEAN,
 	available BOOLEAN,
 	listDate TIMESTAMP,
-	price NUMERIC,
+	description CHAR(500),
 	PRIMARY KEY(listID),
 	FOREIGN KEY(username) REFERENCES Users,
 	FOREIGN KEY(isbn13) REFERENCES Book
@@ -62,6 +64,6 @@ insert into Users values('walter', 'password', 'walter', 'doan', 'wdoan@umass.ed
 insert into Book values('To Kill a Mockingbird', 'Harper Lee', '0446310786', '1234567890123', '1988-10-11', 1);
 insert into Book values('The Great Gatsby', 'F. Scott Fitzgerald', '0743273567', '1234567890124', '2004-09-30', 3);
 
-insert into Listing values(1, 'bianca', '1234567890123', 'true', 'true', 'true', 'true', '2000-09-09', 10);
-insert into Listing values(2, 'walter', '1234567890123', 'true', 'true', 'true', 'true', '2000-09-09', 12);
-insert into Listing values(3, 'walter', '1234567890124', 'true', 'true', 'true', 'true', '2000-09-09', 12);
+insert into Listing values(1, 'bianca', '1234567890123', 'true', 1, 'true', 2, 'true', 'true', '2000-09-09', 'This is a description!');
+insert into Listing values(2, 'walter', '1234567890123', 'true', 3, 'true', 4, 'true', 'true', '2000-09-09', 'This is a description!');
+insert into Listing values(3, 'walter', '1234567890124', 'true', 5, 'true', 6, 'true', 'true', '2000-09-09', 'This is a description!');
