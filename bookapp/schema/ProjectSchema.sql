@@ -64,6 +64,8 @@ insert into Users values('walter', 'password', 'walter', 'doan', 'wdoan@umass.ed
 insert into Book values('To Kill a Mockingbird', 'Harper Lee', '0446310786', '1234567890123', '1988-10-11', 1);
 insert into Book values('The Great Gatsby', 'F. Scott Fitzgerald', '0743273567', '1234567890124', '2004-09-30', 3);
 
+insert into Wishlist values('walter',1234567890123,'1999-01-08');
+
 insert into Listing values(1, 'bianca', '1234567890123', 'true', 1, 'true', 2, 'true', 'true', '2000-09-09', 'This is a description!');
 insert into Listing values(2, 'walter', '1234567890123', 'true', 3, 'true', 4, 'true', 'true', '2000-09-09', 'This is a description!');
 insert into Listing values(3, 'walter', '1234567890124', 'true', 5, 'true', 6, 'true', 'true', '2000-09-09', 'This is a description!');

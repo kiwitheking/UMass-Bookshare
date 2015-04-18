@@ -55,6 +55,15 @@ app.get('/home', function(req, res){
   }
 });
 
+//Home page
+app.get('/wishlist', function(req, res){
+  if(req.session.user) {
+    db.wishListing(req.session.user,res,req);
+  } else {
+    res.redirect('/');
+  }
+});
+
 //get createlisting page
 app.get('/createlisting', function(req, res) {
   if(req.session.user) {
