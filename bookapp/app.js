@@ -14,6 +14,9 @@ var app = express();
 
 var session = require('client-sessions');
 
+var images = require('./routes/images');
+
+
 app.use(session({
   cookieName: 'session',
   secret: 'random_string_goes_here',
@@ -41,6 +44,8 @@ app.use('/', express.static(path.join(__dirname, 'node_modules')));
 app.use('/', express.static(path.join(__dirname, 'views')));
 
 app.use('/', login);
+
+app.use('/images',images);
 
 app.post('/', function(req, res) {
   db.loginUser(req.body.username,req.body.password,res,req);

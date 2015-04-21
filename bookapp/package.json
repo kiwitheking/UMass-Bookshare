@@ -33,6 +33,7 @@
     "client-sessions": "~0.7.0",
     "expect": "^1.6.0",
     "mocha": "^2.2.1",
+    "multiparty": "^4.1.1",
     "should": "^5.2.0"
   }
 }
