@@ -91,7 +91,8 @@ app.post('/createlisting', function(req, res) {
     forBorrow = req.body.forBorrow;
     available = req.body.available;
     description = req.body.description;
-    db.makeListing(username, isbn13, forRent, rentPrice, forSale, sellPrice, forBorrow, available, description, res, req);
+    db.addBookbyISBN(isbn13,username, forRent, rentPrice, forSale, sellPrice, forBorrow, available, description, res, req);
+    //db.makeListing(username, isbn13, forRent, rentPrice, forSale, sellPrice, forBorrow, available, description, res, req);
     res.render('createlisting',{message:'Listing created'});
     // for field checks
     // res.render('createlisting',{message:'Invalid input. Please try again.'});
