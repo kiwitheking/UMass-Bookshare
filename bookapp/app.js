@@ -82,7 +82,7 @@ app.get('/createlisting', function(req, res) {
 // ADD PRICE
 app.post('/createlisting', function(req, res) {
   if (req.session.user) {
-    username = req.body.username;
+    username = req.session.user;
     isbn13 = req.body.isbn13;
     forRent = req.body.forRent;
     rentPrice = req.body.rentPrice;
@@ -91,7 +91,7 @@ app.post('/createlisting', function(req, res) {
     forBorrow = req.body.forBorrow;
     available = req.body.available;
     description = req.body.description;
-    db.makeListing(username, isbn13, forRent, rentPrice, forSale, sellPrice, forBorrow, available, description);
+    db.makeListing(username, isbn13, forRent, rentPrice, forSale, sellPrice, forBorrow, available, description, res, req);
     res.render('createlisting',{message:'Listing created'});
     // for field checks
     // res.render('createlisting',{message:'Invalid input. Please try again.'});
