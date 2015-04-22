@@ -14,6 +14,9 @@ var app = express();
 
 var session = require('client-sessions');
 
+var images = require('./routes/images');
+
+
 app.use(session({
   cookieName: 'session',
   secret: 'random_string_goes_here',
@@ -42,6 +45,8 @@ app.use('/', express.static(path.join(__dirname, 'views')));
 
 app.use('/', login);
 
+app.use('/images',images);
+
 app.post('/', function(req, res) {
   db.loginUser(req.body.username,req.body.password,res,req);
 });
@@ -50,6 +55,15 @@ app.post('/', function(req, res) {
 app.get('/home', function(req, res){
   if(req.session.user) {
     db.recentListing(res,req);
+  } else {
+    res.redirect('/');
+  }
+});
+
+//Home page
+app.get('/wishlist', function(req, res){
+  if(req.session.user) {
+    db.wishListing(req.session.user,res,req);
   } else {
     res.redirect('/');
   }
@@ -68,7 +82,7 @@ app.get('/createlisting', function(req, res) {
 // ADD PRICE
 app.post('/createlisting', function(req, res) {
   if (req.session.user) {
-    username = req.body.username;
+    username = req.session.user;
     isbn13 = req.body.isbn13;
     forRent = req.body.forRent;
     rentPrice = req.body.rentPrice;
@@ -77,7 +91,7 @@ app.post('/createlisting', function(req, res) {
     forBorrow = req.body.forBorrow;
     available = req.body.available;
     description = req.body.description;
-    db.makeListing(username, isbn13, forRent, rentPrice, forSale, sellPrice, forBorrow, available, description);
+    db.makeListing(username, isbn13, forRent, rentPrice, forSale, sellPrice, forBorrow, available, description, res, req);
     res.render('createlisting',{message:'Listing created'});
     // for field checks
     // res.render('createlisting',{message:'Invalid input. Please try again.'});
