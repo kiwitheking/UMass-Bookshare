@@ -106,6 +106,7 @@ app.post('/createlisting', function(req, res) {
 app.post('/home', function(req,res){
   search = req.body.searchTerm;
   //db.searchBook(search, renderHome(res,record));
+  //db.search(search,res);
   db.postBookListing(search, res);
 });
 
