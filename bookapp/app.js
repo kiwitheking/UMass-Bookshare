@@ -69,6 +69,14 @@ app.get('/wishlist', function(req, res){
   }
 });
 
+//add to wishlist page
+app.post('/addtowishlist', function(req, res){
+  if(req.session.user) {
+    console.log("add to wishlist");
+    db.addBookWish(req.session.user,req.body.isbn13 ,res,req);
+  }
+});
+
 //get createlisting page
 app.get('/createlisting', function(req, res) {
   if(req.session.user) {
