@@ -73,8 +73,30 @@
             <% } %>
           </div> <!--row placeholders wishlistsnips-->
           <p><a class="btn btn-default" href="#" role="button">See More »</a></p>
-          
-        </div>
+
+
+          <div class="col-md-5">
+            <!-- add things to wishlist -->
+            <h2>Add a Book to Your Wishlist</h2>
+            <form action="/addtowishlist" method="post">
+              <div class="form-horizontal">
+
+                <div class="form-group">
+                  <div class="col-sm-8">
+                    <p><input type="isbn13" class="form-control" name="isbn13" maxlength="13" placeholder="ISBN-13">
+                    <button type="submit" class="form-control btn btn-success btn-md">Add to Wishlist</button></p>
+                  </div> <!--col-sm-8-->
+                </div> <!--form-group-->
+
+              </div> <!-- form-horizontal -->
+
+              <div class="form-group">
+              <div class="col-sm-offset-4 col-sm-8">
+<!--                 <button type="submit" class="form-control btn btn-success btn-md">Add to Wishlist</button> -->
+              </div> <!--col-sm-8-->
+              </div> <!--form-group-->
+            </form>
+      </div>
       </div><!--row-Selling & Wishlist-->
 
     </div> <!--row-->
