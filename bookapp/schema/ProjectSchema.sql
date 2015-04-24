@@ -52,7 +52,7 @@ create table Rating(
 	ratedUser CHAR(20),
 	ratingUser CHAR(20),
 	rating INTEGER,
-	PRIMARY KEY(ratedUser),
+	PRIMARY KEY(ratedUser, ratingUser),
 	FOREIGN KEY(ratedUser) REFERENCES Users(username),
 	FOREIGN KEY(ratingUser) REFERENCES Users(username)
 );

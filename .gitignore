@@ -16,3 +16,4 @@ npm-debug.log
 !bookapp/node_modules/levenshtein.js
 !bookapp/node_modules/search.js
 !bookapp/node_modules/uuid.js
+!bookapp/node_modules/DB_rating.js
