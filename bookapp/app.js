@@ -69,6 +69,14 @@ app.get('/wishlist', function(req, res){
   }
 });
 
+//add to wishlist page
+app.post('/addtowishlist', function(req, res){
+  if(req.session.user) {
+    console.log("add to wishlist");
+    db.addBookWish(req.session.user,req.body.isbn13 ,res,req);
+  }
+});
+
 //get createlisting page
 app.get('/createlisting', function(req, res) {
   if(req.session.user) {
@@ -91,7 +99,8 @@ app.post('/createlisting', function(req, res) {
     forBorrow = req.body.forBorrow;
     available = req.body.available;
     description = req.body.description;
-    db.makeListing(username, isbn13, forRent, rentPrice, forSale, sellPrice, forBorrow, available, description, res, req);
+    db.addBookbyISBN(isbn13,username, forRent, rentPrice, forSale, sellPrice, forBorrow, available, description, res, req);
+    //db.makeListing(username, isbn13, forRent, rentPrice, forSale, sellPrice, forBorrow, available, description, res, req);
     res.render('createlisting',{message:'Listing created'});
     // for field checks
     // res.render('createlisting',{message:'Invalid input. Please try again.'});
@@ -105,7 +114,12 @@ app.post('/createlisting', function(req, res) {
 app.post('/home', function(req,res){
   search = req.body.searchTerm;
   //db.searchBook(search, renderHome(res,record));
-  db.postBookListing(search, res);
+  db.search(search,res);
+});
+
+app.post('/viewListing', function(req,res){
+  isbn13 = req.body.isbn13;
+  db.postBookListing(isbn13, res);
 });
 
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="en"><head>
-  <title>Search Page</title>
+  <title>List Page</title>
   <% include includes/header.ejs %>
   <!-- <link href="/stylesheets/search.css" rel="stylesheet" type="text/css"/> -->
 </head>
@@ -21,7 +21,7 @@
         <div class="row search-results">
           <% for(var i = 0; i < hi.length; i++) { %>
 
-            <%- include('partials/bookresultbox.ejs', {data: hi[i]}) %>    
+            <%- include('partials/resultbox.ejs', {data: hi[i]}) %>    
           <% } %>
           
         </div> <!-- row search-results -->
