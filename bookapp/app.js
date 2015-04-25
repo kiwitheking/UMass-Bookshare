@@ -73,7 +73,9 @@ app.get('/wishlist', function(req, res){
 app.post('/addtowishlist', function(req, res){
   if(req.session.user) {
     console.log("add to wishlist");
-    db.addBookWish(req.session.user,req.body.isbn13 ,res,req);
+    var isbn13_nohyphen = req.body.isbn13.replace(/[^\d]/g, '');
+    console.log(isbn13_nohyphen);
+    db.addBookWish(req.session.user,isbn13_nohyphen,res,req);
   }
 });
 
@@ -99,7 +101,9 @@ app.post('/createlisting', function(req, res) {
     forBorrow = req.body.forBorrow;
     available = req.body.available;
     description = req.body.description;
-    db.addBookbyISBN(isbn13,username, forRent, rentPrice, forSale, sellPrice, forBorrow, available, description, res, req);
+    var isbn13_nohyphen = req.body.isbn13.replace(/[^\d]/g, '');
+    console.log(isbn13_nohyphen);
+    db.addBookbyISBN(isbn13_nohyphen,username, forRent, rentPrice, forSale, sellPrice, forBorrow, available, description, res, req);
     //db.makeListing(username, isbn13, forRent, rentPrice, forSale, sellPrice, forBorrow, available, description, res, req);
     res.render('createlisting',{message:'Listing created'});
     // for field checks
