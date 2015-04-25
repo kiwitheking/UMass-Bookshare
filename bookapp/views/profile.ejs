@@ -57,8 +57,8 @@
           <h2>Selling</h2>
           <p><%= username %> is selling these books</p>
           <div class="row placeholders">
-            <% for(var i = 0; i < 4; i++) { %>
-              <% include partials/sellingsnippet.ejs %>
+            <% for(var i = 0; i < selling.length; i++) { %>
+              <%- include('partials/sellingsnippet.ejs', {data: selling[i]}) %>
             <% } %>
           </div> <!--row placeholders-->
           <p><a class="btn btn-default" href="#" role="button">See More »</a></p>
@@ -68,8 +68,8 @@
           <h2>Wishlist</h2>
           <p><%= username %> is look for these books</p>
           <div class="row placeholders">
-            <% for(var i = 0; i < 4; i++) { %>
-              <% include partials/wishlistsnippet.ejs %>
+            <% for(var i = 0; i < wishList.length; i++) { %>
+              <%- include('partials/wishlistsnippet.ejs', {data: wishList[i]}) %>
             <% } %>
           </div> <!--row placeholders wishlistsnips-->
           <p><a class="btn btn-default" href="#" role="button">See More »</a></p>

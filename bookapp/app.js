@@ -127,27 +127,9 @@ app.get('/profile', function(req, res) {
   if (req.session && req.session.user) { // Check if session exists
     // lookup the user in the DB by pulling their email from the session
     console.log(req.session.user);
-    pg.connect(conString, function(err, client) {
-    var query = client.query({
-      text: 'Select * from users where username =$1',
-      values: [req.session.user.replace(/\s+/g,'')]
-    });
-    query.on('row', function(row) {
-         if (!row) {
 
-        // if the user isn't found in the DB, reset the session info and
-        // redirect the user to the login page
-        client.end();
-        req.session.reset();
-        res.redirect('/');
-          } else {
-            // expose the user to the template
-            // render the profile page
-            res.render('profile', { username: row.username, fname: row.firstname, 
-              lname: row.lastname, email: row.email, phone: row.phone, school: row.institution});
-          }
-    });
-  });
+    db.getProfile(req.session.user, res,req);
+  
   } else {
     res.redirect('/');
   }
