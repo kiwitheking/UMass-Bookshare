@@ -73,7 +73,7 @@ CREATE UNIQUE INDEX isbn13Index
 ON book (isbn13);
 
 CREATE INDEX userWishIndex
-ON wshlist (username);
+ON wishlist (username);
 
 CREATE INDEX listIDIndex
 ON listing (listid);
