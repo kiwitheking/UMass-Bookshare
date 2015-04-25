@@ -9,7 +9,8 @@
       </h5>
 
       <h6><%= "ISBN-13: " + data.isbn13 %>
-        <br><%= "Posted by: " + data.username %>
+        <!--links to seller profile -->
+        <br>Posted by: <%=data.username%>
       <h6>
 
       <h5><%= "Selling Price: $"+data.sellprice %>
@@ -23,6 +24,15 @@
         <% } else {%>
           <%= "Description: " + data.description %>
         <% } %>
+      </p>
+
+
+      <!-- view seller button-->
+      <p>
+        <form action="/sellerprofile" method="post">
+          <button type="submit" class="form-control btn btn-info btn-sm">View Seller</button>
+          <input type="hidden" name="seller" value="<%=data.username%>">
+        </form>
       </p>
 
     </div> <!-- caption -->
