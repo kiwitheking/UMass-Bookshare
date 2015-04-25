@@ -26,7 +26,7 @@ Install Postgres and Git. Note: On a Mac, you will need [Homebrew] (http://brew.
 
 Navigate to the folder where you want to install UMass-Bookshare and run:
 
-    git clone https://github.com/WDoan/UMass-Bookshare.git
+    git clone https://github.com/UMass-Bookshare/UMass-Bookshare.git
 
 Create a role for UMass-Books and create the database, run the following commands:
 

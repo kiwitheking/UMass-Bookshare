@@ -27,7 +27,8 @@
     "serve-favicon": "~2.2.0",
     "sessions": "0.0.2-7",
     "should": "~5.2.0",
-    "stylus": "0.42.3"
+    "stylus": "0.42.3",
+    "isbn-validator": "~1.2.0"
   },
   "devDependencies": {
     "bluebird": "^2.9.21",
