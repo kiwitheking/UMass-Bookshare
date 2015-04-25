@@ -57,6 +57,36 @@ create table Rating(
 	FOREIGN KEY(ratingUser) REFERENCES Users(username)
 );
 
+CREATE INDEX uNameIndex
+ON users (username);
+
+CREATE INDEX TitleIndex
+ON book (title);
+
+CREATE INDEX AuthorIndex
+ON book (author);
+
+CREATE UNIQUE INDEX isbn10Index
+ON book (isbn10);
+
+CREATE UNIQUE INDEX isbn13Index
+ON book (isbn13);
+
+CREATE INDEX userWishIndex
+ON wshlist (username);
+
+CREATE INDEX listIDIndex
+ON listing (listid);
+
+CREATE INDEX userListIndex
+ON listing (username);
+
+CREATE INDEX isbnListIndex
+ON listing (isbn13);
+
+CREATE INDEX listDateIndex
+on listing (listdate);
+
 
 insert into Users values('bianca', 'password', 'bianca', 'tamaskar', 'btamaska@umass.edu', '9788888888', 'UMass Amherst');
 insert into Users values('walter', 'password', 'walter', 'doan', 'wdoan@umass.edu', '9788888888', 'UMass Amherst');
