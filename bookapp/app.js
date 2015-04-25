@@ -116,14 +116,21 @@ app.post('/createlisting', function(req, res) {
 
 
 app.post('/home', function(req,res){
+  if(req.body.searchTerm == ''){
+    res.redirect('/profile');
+  }
   search = req.body.searchTerm;
-  //db.searchBook(search, renderHome(res,record));
   db.search(search,res);
 });
 
 app.post('/viewListing', function(req,res){
   isbn13 = req.body.isbn13;
   db.postBookListing(isbn13, res);
+});
+
+app.post('/sellerprofile', function(req,res){
+  seller = req.body.seller;
+  db.viewProfile(seller, res,req);
 });
 
 
@@ -156,6 +163,9 @@ app.get('/profile', function(req, res) {
     res.redirect('/');
   }
 });
+
+
+
 
 //handles logout
 app.get('/logout', function(req, res) {
