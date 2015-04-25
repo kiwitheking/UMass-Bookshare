@@ -1,0 +1,84 @@
+<!-- views/profile.ejs -->
+<!DOCTYPE html>
+<html><head>
+  <title>Edit Profile</title>
+  <% include includes/header.ejs %>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+</head>
+
+<body>
+  <% include partials/navbarlogin.ejs %>
+  <div class="container">
+  
+    <div class="row">
+      <% include partials/sidebar.ejs %>
+
+      <!-- Profile info -->
+      <div class="row-fluid col-sm-10 col-sm-offset-3 col-md-12 col-md-offset-2 main">
+        
+        <h1 class="page-header">Edit Profile</h1>
+        <h2> <%= username %> </h2>
+        <!-- <h1 class="page-header"><%= username %>'s seller profile</h1> -->
+        <!-- profile picture -->
+          <div class="col-md-5">
+            <img data-src="holder.js/200x200/auto/vine" class="img-thumbnail" alt="200x200" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzM5REJBQyIvPjxnPjx0ZXh0IHg9Ijc0LjA1NDY4NzUiIHk9IjEwMCIgc3R5bGU9ImZpbGw6IzFFMjkyQztmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0O2RvbWluYW50LWJhc2VsaW5lOmNlbnRyYWwiPjIwMHgyMDA8L3RleHQ+PC9nPjwvc3ZnPg==" data-holder-rendered="true">
+          </div> <!--col-md-3 col-md-offset-2-->
+
+        <!--Profile info-->
+        <div class="col-md-5">
+              <!-- Sign Up Form -->
+    <div class="col-md-5" style="width: 400px">
+      <!-- <form action="/"> -->
+      <form action="/editprofile" method="post">
+        <div class="form-horizontal">
+
+          <div class="form-group">
+            <label for="firstName" class="col-sm-4 control-label">First Name</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" name="firstName" value=<%=fname%>>
+            </div> <!--col-sm-8-->
+          </div> <!--form-group-->
+
+          <div class="form-group">
+            <label for="lastName" class="col-sm-4 control-label">Last Name</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" name="lastName" value=<%=lname%>>
+            </div> <!--col-sm-8-->
+          </div> <!--form-group-->
+
+          <div class="form-group">
+            <label for="email" class="col-sm-4 control-label">Email address</label>
+            <div class="col-sm-8">
+              <input type="email" class="form-control" name="email" value=<%=email%>>
+            </div> <!--col-sm-8-->
+          </div> <!--form-group-->
+
+          <div class="form-group">
+            <label for="phone" class="col-sm-4 control-label">Phone Number</label>
+            <div class="col-sm-8">
+              <input type="tel" class="form-control bfh-phone" name="phone" value="<%=phone%>" data-format="dddddddddd">
+              <!-- <input type="tel" class="form-control" name="phone" placeholder="Phone Number"> -->
+            </div> <!--col-sm-8-->
+          </div> <!--form-group-->
+
+          <div class="form-group">
+            <label for="institution" class="col-sm-4 control-label">Institution</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" name="institution" value=<%=institution%>>
+            </div> <!--col-sm-8-->
+          </div> <!--form-group-->
+
+          <div class="form-group">
+            <div class="col-sm-offset-4 col-sm-8">
+              <button type="submit" class="form-control btn btn-warning btn-lg">Submit</button>
+            </div> <!--col-sm-8-->
+          </div> <!--form-group-->
+
+
+        </div><!--col-md-5-->
+
+      </div><!-- col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main -->
+
+  </div><!-- /.container-fluid -->
+
+</body></html>

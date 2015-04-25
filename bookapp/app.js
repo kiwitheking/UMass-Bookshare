@@ -88,6 +88,16 @@ app.get('/createlisting', function(req, res) {
   }
 });
 
+app.get('/editprofile', function(req,res){
+  if(req.session.user){
+    db.editProfile(req.session.user, res, req);
+  }
+});
+
+app.post('/editprofile', function(req,res){
+  db.updateProfile(req.session.user, req.body.firstName, req.body.lastName, req.body.email, req.body.phone, req.body.institution, res, req);
+});
+
 //post createlisting
 // ADD PRICE
 app.post('/createlisting', function(req, res) {
