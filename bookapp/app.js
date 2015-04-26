@@ -166,11 +166,11 @@ app.get('/profile', function(req, res) {
 });
 
 
-app.get('/userguide', function(req, res) {
+app.get('/help', function(req, res) {
   if(req.session.user){
-    res.render('userguide');
+    res.render('help');
   }else{
-    res.redirect('/');_
+    res.redirect('/');
   }
 });
 //handles logout
