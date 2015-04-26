@@ -147,6 +147,7 @@ app.post('/listing', function(req, res) {
 
 app.post('/sellerprofile', function(req,res){
   seller = req.body.seller;
+  console.log(seller);
   db.viewProfile(seller, res,req);
 });
 
