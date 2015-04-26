@@ -10,6 +10,7 @@
   <% include partials/navbarlogin.ejs %>
   <!-- Page Content -->
   <div class="container-fluid">
+
     <div class="row">
 
       <!--Page stuff-->
@@ -21,7 +22,7 @@
           <% for(var i = 0; i < wishList.length; i++) { %>
 	          <div class="col-sm-4 col-lg-4 col-md-4">
               <div class="thumbnail">
-                <img src="/homepage_files/320x150">
+                 <img src=<%= wishList[i].cover%>>
                 <div class="caption">
                 <!-- titel and author -->
                   <h5><a href="#"><%= wishList[i].title %></a>
@@ -31,8 +32,32 @@
               </div>
             </div>
           <% } %>
-          
         </div><!--Search results-->
+
+        <div class="row">
+          <div class="col-md-8">
+            <!-- add things to wishlist -->
+            <h2>Add a Book to Your Wishlist</h2>
+            <form action="/addtowishlist" method="post">
+              <div class="form-horizontal">
+
+                <div class="form-group">
+                  <div class="col-sm-8">
+                    <p><input type="isbn13" class="form-control" name="isbn13" maxlength="15" placeholder="ISBN-13">
+                    <button type="submit" class="form-control btn btn-success btn-md">Add to Wishlist</button></p>
+                  </div> <!--col-sm-8-->
+                </div> <!--form-group-->
+
+              </div> <!-- form-horizontal -->
+
+              <div class="form-group">
+              <div class="col-sm-offset-4 col-sm-8">
+  <!--                 <button type="submit" class="form-control btn btn-success btn-md">Add to Wishlist</button> -->
+              </div> <!--col-sm-8-->
+              </div> <!--form-group-->
+            </form>
+          </div>
+        </div>
    
         <!-- Add pagination -->
       </div><!--Homepage stuff-->
