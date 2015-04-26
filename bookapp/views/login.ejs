@@ -10,6 +10,7 @@
 </head>
 
 <body>
+
 	<% include partials/navbar.ejs %>
 	<div class="container-fluid">
 		<!-- <div class="col-sm-8 col-md-6 col-md-offset-3"> -->
@@ -17,7 +18,7 @@
 		<!-- </div> -->
 
 		<!--Homepage stuff-->
-		<div class="row centered-form">
+		<div class="row centered-form loginbox">
 	    <div class="col-sm-6 col-md-4 col-md-offset-4">
 	    	<div class="panel panel-default fadeInDown">
 		    	<div class="panel heading">
@@ -43,23 +44,35 @@
 
 						<button type="submit" class="form-control btn btn-success btn-md">Login</button>
 
-						<div class="form-group col-sm-14">
-				            <label class="checkbox pull-left">
-				            	<!--Change function to "Keep me signed in"-->
-				              <input type="checkbox" value="remember-me">Remember me
-				            </label>
-				            <!-- fix href and implement password retrieval-->
-				            <a href="#" class="need-help pull-right">Need help?</a><span class="clearfix"></span>
-						</div>
 
 						<div class="form-group col-sm-14">
-       		 				<p>Don't have an account? <a href="/signup">Signup here</a></p>
+       		 				<p><br>Don't have an account? <a href="/signup">Signup here</a></p>
        		 			</div>
 					</form>
 				</div> <!-- panel-body -->
 
+
+
 				</div> <!-- col-sm-6 col-md-4 col-md-offset-4 -->
 			</div>
+
+			
+			<div class="row aboutsection">
+				
+	    		<div class="col-sm-6 col-md-8 col-md-offset-2">
+	    			<br><br><br><br><br><br><br>
+	    			<div class="panel panel-default">
+	    				<div class="panel-heading" style="text-align: center"><b>What is UMass Bookshare?</b></div>
+	    				 	<div class="panel-body panel-transparent">
+								<p id="aboutparagraph">UMass Bookshare aims to provide a more <b>convenient, efficient</b> way for students like us to get the books they need! Some students use Facebook groups, but it is highly ineffective. UMass BookShare will allow students to get their books more quickly as they are using an application that is devoted to the sharing of books and because all of the sellers are located on the <b>UMass campus</b>. It is cost-effective because students will not have to rely on the Textbook Annex and other students may be more sympathetic to the high cost of books. The application is also unique in that it allows students to share books with each other for <b>short periods</b> of time, rather than an entire semester. This is for those students who buy a textbook, only to use it once or twice! UMass BookShare is also a more <b>sustainable</b> option as it eliminates the need for shipping and packaging.
+			       				 </p>
+       						</div>
+       					<div>
+       				</div>
+       			</div>
+			</div>
+		
+
 		</div>
 	</div> <!-- container-fluid-->
 
