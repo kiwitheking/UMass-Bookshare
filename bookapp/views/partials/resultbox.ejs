@@ -6,11 +6,12 @@
 
     <!-- Need listibg-books join to get titel and author -->
       <h5><b><%= data.title %></b>
-        <br>(Edition: <%=data.version%>)
         <br>by <%= data.author %>
       </h5>
 
-      <h6><%= "ISBN-13: " + data.isbn13 %>
+      <h6>
+        <%= "ISBN-13: " + data.isbn13 %>
+
         <!--links to seller profile -->
         <br>Posted by: <%=data.username%>
       <h6>
