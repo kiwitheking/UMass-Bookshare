@@ -26,7 +26,7 @@ app.use(session({
 
 var pg = require('pg');
 //put in your own connection here
-var conString = "postgres://postgres:password@localhost/UMass-Books";
+var conString = "postgres://postgres:postgres@localhost/UMass-Books";
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
