@@ -9,11 +9,8 @@ var db = require('DB_Interface.js')
 var login = require('./routes/login');
 var profile = require('./routes/profile');
 var sequelize = require('sequelize');
-
 var app = express();
-
 var session = require('client-sessions');
-
 var images = require('./routes/images');
 var report = require('./routes/report');
 
