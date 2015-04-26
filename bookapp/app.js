@@ -115,7 +115,6 @@ app.post('/createlisting', function(req, res) {
     console.log(isbn13_nohyphen);
     db.addBookbyISBN(isbn13_nohyphen,username, forRent, rentPrice, forSale, sellPrice, forBorrow, available, description, res, req);
     //db.makeListing(username, isbn13, forRent, rentPrice, forSale, sellPrice, forBorrow, available, description, res, req);
-    res.render('createlisting',{message:'Listing created'});
     // for field checks
     // res.render('createlisting',{message:'Invalid input. Please try again.'});
   } else {
@@ -127,7 +126,7 @@ app.post('/createlisting', function(req, res) {
 
 app.post('/home', function(req,res){
   if(req.body.searchTerm == ''){
-    res.redirect('/profile');
+    res.redirect('/home');
   }
   search = req.body.searchTerm;
   db.search(search,res);

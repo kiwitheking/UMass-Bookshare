@@ -7,7 +7,7 @@
 </head>
 
 <body>
-  <% include partials/navbar.ejs %>
+  <% include partials/navbarlogin.ejs %>
   <!-- Page Content -->
   <div class="container-fluid">
     <div class="row">
@@ -19,7 +19,6 @@
         <!-- search results -->
         <div class="row search-results">
           <% for(var i = 0; i < hi.length; i++) { %>
-
             <%- include('partials/bookresultbox.ejs', {data: hi[i]}) %>    
           <% } %>
           

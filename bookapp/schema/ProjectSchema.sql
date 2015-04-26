@@ -8,6 +8,7 @@ create table Users(
 	institution CHAR(60),
 	age INTEGER,
 	sex CHAR(1),
+	profilepic VARCHAR(255),
 	PRIMARY KEY(username)
 );
 
@@ -18,7 +19,7 @@ create table Book(
 	isbn13 CHAR(13),
 	publicationDate DATE,
 	version SMALLINT,
-	cover BYTEA,
+	cover VARCHAR(255),
 	PRIMARY KEY(isbn13)
 );
 
