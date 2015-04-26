@@ -10,15 +10,12 @@
 
       <h6><%= "ISBN-13: " + data.isbn13 %>
         <br><%= "ISBN-10: " + data.isbn10 %>
-      <h6>
-        <form action="/viewListing" method="post">
+      </h6>
 
-            <button type="submit" class="form-control btn btn-info btn-sm">View Listing</button>
-
-            <input type="hidden" name="isbn13" value="<%=data.isbn13%>">
-         
-
-          </form>
+      <form action="/viewListing" method="post">
+        <button type="submit" class="form-control btn btn-info btn-sm">View Listing</button>
+        <input type="hidden" name="isbn13" value="<%=data.isbn13%>">
+      </form>
 
      
     </div> <!-- caption -->

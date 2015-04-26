@@ -7,7 +7,7 @@
 </head>
 
 <body>
-  <% include partials/navbar.ejs %>
+  <% include partials/navbarlogin.ejs %>
   <!-- Page Content -->
   <div class="container-fluid">
     <div class="row">
@@ -18,6 +18,9 @@
 
         <!-- search results -->
         <div class="row search-results">
+          <% if(hi.length === 0){ %>
+            <h3>There are no listings for this book.</h3>
+          <% } %>
           <% for(var i = 0; i < hi.length; i++) { %>
 
             <%- include('partials/resultbox.ejs', {data: hi[i]}) %>    
