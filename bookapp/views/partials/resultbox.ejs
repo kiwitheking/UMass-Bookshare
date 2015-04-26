@@ -18,8 +18,12 @@
       <% if(data.available === false) { %>
           <%= "This book is currently not available." %>
         <% } else {%>
-          <%= "Selling Price: $"+data.sellprice %>
-        <br><%= "Rent Price: $"+data.rentprice %>
+          <% if(data.forSale === true){ %>
+            <%= "Selling Price: $"+data.sellprice %>
+          <% } %>
+          <% if(data.forSale === true){ %>
+            <br><%= "Rent Price: $"+data.rentprice %>
+          <% } %>
         <% } %>
       </h5>
 

@@ -126,7 +126,7 @@ app.post('/createlisting', function(req, res) {
 
 app.post('/home', function(req,res){
   if(req.body.searchTerm == ''){
-    res.redirect('/profile');
+    res.redirect('/home');
   }
   search = req.body.searchTerm;
   db.search(search,res);
