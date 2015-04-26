@@ -26,7 +26,7 @@ app.use(session({
 
 var pg = require('pg');
 //put in your own connection here
-var conString = "postgres://postgres:password@localhost/UMass-Books";
+var conString = "postgres://postgres:postgres@localhost/UMass-Books";
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -158,7 +158,8 @@ app.get('/profile', function(req, res) {
     // lookup the user in the DB by pulling their email from the session
     console.log(req.session.user);
 
-    db.getProfile(req.session.user, res,req);
+    db.getProfile(req.session.user, res, req);
+    db.getProfile(req.session.user, res, req);
   
   } else {
     res.redirect('/');
