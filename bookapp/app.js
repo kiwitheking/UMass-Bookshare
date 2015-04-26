@@ -166,9 +166,9 @@ app.get('/profile', function(req, res) {
 });
 
 
-app.get('/help', function(req, res) {
+app.get('/userguide', function(req, res) {
   if(req.session.user){
-    res.render('help');
+    res.render('userguide');
   }else{
     res.redirect('/');_
   }
