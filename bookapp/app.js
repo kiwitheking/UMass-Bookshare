@@ -138,6 +138,14 @@ app.post('/viewListing', function(req,res){
   db.postBookListing(isbn13, res);
 });
 
+app.post('/listing', function(req, res) {
+  // console.log( typeof req.body.listingid);
+  // console.log(listid);
+  id = req.body.listingid;
+  console.log(id);
+  db.getListing(id, res);
+});
+
 app.post('/sellerprofile', function(req,res){
   seller = req.body.seller;
   db.viewProfile(seller, res,req);

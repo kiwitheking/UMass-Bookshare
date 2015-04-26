@@ -4,7 +4,8 @@
     <div class="caption">
 
     <!-- Need listibg-books join to get titel and author -->
-      <h5><a href="#"><%= data.title %> (Edition: <%=data.version%>)</a>
+      <h5><b><%= data.title %></b>
+        <br>(Edition: <%=data.version%>)
         <br>by <%= data.author %>
       </h5>
 
@@ -13,8 +14,13 @@
         <br>Posted by: <%=data.username%>
       <h6>
 
-      <h5><%= "Selling Price: $"+data.sellprice %>
+      <h5>
+      <% if(data.available === false) { %>
+          <%= "This book is currently not available." %>
+        <% } else {%>
+          <%= "Selling Price: $"+data.sellprice %>
         <br><%= "Rent Price: $"+data.rentprice %>
+        <% } %>
       </h5>
 
       <!-- TODO: only show snippet -->

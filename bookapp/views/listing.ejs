@@ -1,52 +1,59 @@
+s<!-- views/listing.ejs -->
 <!DOCTYPE html>
-
-<html lang="en">
-  <head>
-    <title>Book Listing</title>
-    <% include includes/header.ejs %>
-    <!-- <link href="../public/stylesheets/listing.css" rel="stylesheet" type="text/css"/> -->
-  </head>
+<html><head>
+  <title>Profile Page</title>
+  <% include includes/header.ejs %>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+</head>
 
 <body>
-  <% include partials/navbar.ejs %>
-  <div class="container-fluid">
+  <% include partials/navbarlogin.ejs %>
+  <div class="container">
+  
     <div class="row">
-      <% include partials/sidebar.ejs %>
       <% include partials/searchbar.ejs %>
 
-      <!-- Book info -->
-      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-        <!-- book image -->
-        <div class="col-md-4">
-          <!--img-responsive for scaling-->
-          <img data-src="holder.js/200x200/auto/sky" class="img-thumbnail" alt="200x200" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzBEOEZEQiIvPjxnPjx0ZXh0IHg9Ijc0LjA1NDY4NzUiIHk9IjEwMCIgc3R5bGU9ImZpbGw6I0ZGRkZGRjtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0O2RvbWluYW50LWJhc2VsaW5lOmNlbnRyYWwiPjIwMHgyMDA8L3RleHQ+PC9nPjwvc3ZnPg==" data-holder-rendered="true">
-        </div>
+      <!-- Profile info -->
+      <div class="row-fluid col-sm-10 col-sm-offset-3 col-md-12 col-md-offset-2 main">
+        
+        <h1 class="page-header"><%= hello.title %> by <%= hello.author %></h1>
+        <!-- <h1 class="page-header"><%= hello.isbn13 %></h1> -->
+        <!-- profile picture -->
+          <div class="col-md-5">
+            <img data-src="holder.js/200x200/auto/vine" class="img-thumbnail" alt="200x200" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzM5REJBQyIvPjxnPjx0ZXh0IHg9Ijc0LjA1NDY4NzUiIHk9IjEwMCIgc3R5bGU9ImZpbGw6IzFFMjkyQztmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0O2RvbWluYW50LWJhc2VsaW5lOmNlbnRyYWwiPjIwMHgyMDA8L3RleHQ+PC9nPjwvc3ZnPg==" data-holder-rendered="true">
+          </div> <!--col-md-3 col-md-offset-2-->
 
-        <!--book info-->
-        <div class="col-md-4">
-          <form action="/listing">
-            <div>
-              <h3>Wouldn't You Like To Know</h3>
-              <h5>by Morgan Freeman</h5>
-              <div class="col-sm-7 pull-right">
-                <!-- Link to purchase page -->
-                <a class="form-control btn btn-warning btn-md" id="submit" type="submit" href="#">Buy or whatever</a>
-              </div> <!--col-sm-8-->
-              <h3>$6.66</h3>
-              <h4>Book Description</h4>
-              <h4>Sold by: <%= username %></h4>
-              <h6>ISBN10: 978-3-16-148410-0</h6>
-              <h6>ISBN13: <%= isbn13 %></h6>
-              <h5>Subject: Biochemistry</h5>
-              <h5>Course: Biochem 100</h5>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <!--Profile info-->
+        <div class="col-md-5">
+          <form>
+            <div class="form-horizontal">
+            <h5>ISBN-13: <%= hello.isbn13 %></h5>
+            <h5>Buy for: $<%= hello.sellprice %></h5> <!-- Need to format -->
+            <h5>Rent for: $<%= hello.rentprice %></h5> <!-- Need to format -->s
+            <h5>Posted by <%= hello.username %></h5> <!-- make this link to profile -->
+            <!-- <h5 id="available">This book is currently available.<h5> -->
+            <!-- <h5 id="unavailable">This book is currently unavailable.<h5> -->
+            
+              <% if(hello.available === true){ %>
+                <h5 id="available">This book is currently <b>available</b>!</h5>
+                <!-- document.getElementById("available").style.visibility="visible"; -->
+                <!-- document.getElementById("unavailable").style.visibility="hidden"; -->
+              <% }else{ %>
+                <h5 id="unavailable">This book is currently <b>unavailable</b>!</h5>
+                <!-- document.getElementById("available").style.visibility="hidden"; -->
+                <!-- document.getElementById("unavailable").style.visibility="visible"; -->
+            <%  } %>
+            
+            <h5>Description: <%= hello.description %></h5>
             </div>
-          </form>
-        </div><!--col-md-4-->
+          </form>   
 
-      </div> <!-- col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main -->
-    </div> <!-- row -->
-  </div> <!-- container-fluid -->
+        </div><!--col-md-5-->
+
+      </div><!-- col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main -->
+
+    </div> <!--row-->
+  </div><!-- /.container-fluid -->
 
   <% include includes/footer.ejs %>
 </body></html>
