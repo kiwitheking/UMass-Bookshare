@@ -1,0 +1,64 @@
+body {
+    /*background-color: #cccccc;*/
+  background: url(../images/textbook.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+}
+.centered-form {
+	margin-top: 60px;
+}
+
+.centered-form .panel {
+	background: rgba(255, 255, 255, 0.9);
+	box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+}
+
+.about-section .panel {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+}
+
+#createlisting{
+  font-size: 15px;
+  text-align: left;
+}
+
+
+/*FadeInDown*/
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  -webkit-animation-duration: 1s;
+  animation-name: fadeInDown;
+  animation-duration: 1s;
+}
