@@ -37,6 +37,7 @@
     "expect": "^1.6.0",
     "mocha": "^2.2.1",
     "multiparty": "^4.1.1",
+    "node-isbn": "^1.2.0",
     "should": "^5.2.0"
   }
 }
