@@ -173,6 +173,7 @@ app.get('/help', function(req, res) {
     res.redirect('/');
   }
 });
+
 //handles logout
 app.get('/logout', function(req, res) {
   console.log('logout');
