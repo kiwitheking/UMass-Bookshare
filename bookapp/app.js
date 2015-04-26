@@ -164,8 +164,13 @@ app.get('/profile', function(req, res) {
 });
 
 
-
-
+app.get('/help', function(req, res) {
+  if(req.session.user){
+    res.render('help');
+  }else{
+    res.redirect('/');_
+  }
+});
 //handles logout
 app.get('/logout', function(req, res) {
   console.log('logout');

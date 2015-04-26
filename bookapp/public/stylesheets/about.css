@@ -1,3 +1,30 @@
+body {
+    /*background-color: #cccccc;*/
+  background: url(../images/textbook.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+}
+.centered-form {
+  margin-top: 60px;
+}
+
+/*.centered-form .panel {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+}*/
+
+.about-section .panel {
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+}
+
+#createlisting{
+  font-size: 15px;
+  text-align: left;
+}
 
 .memberblock {
   background: #2db34a;
@@ -15,7 +42,7 @@
   /*position: relative;*/
 }
 
-.peter {
+/*.peter {
   background: #E8E202;
 }
 
@@ -41,7 +68,7 @@
 
 .chris {
   background: #265E72;
-}
+}*/
 
 /*ANIMATIONS*/
 
