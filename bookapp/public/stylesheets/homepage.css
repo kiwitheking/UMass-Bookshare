@@ -1,9 +1,17 @@
+body {
+    /*background-color: #555555;*/
+  /*background: #000000; */
+  /*-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;*/
+}
 
 #wrapper {
-	width: 100%;
-	max-width: 100%;
-	min-width: 800px;
-	margin: 10px auto;
+	/*width: 100%;*/
+	/*max-width: 100%;*/
+	/*min-width: 800px;*/
+	/*margin: 10px auto;*/
 }
 
 #columns {
@@ -70,3 +78,13 @@
 /*#columns:hover .pin:not(:hover) {
 	opacity: 0.4;
 }*/
+
+/*CAROUSEL STUFF*/
+.carousel-inner > .item > img {
+	height:300px;
+	width:800px;
+}
+
+.carousel-left .carousel-right {
+	vertical-align: center;
+}

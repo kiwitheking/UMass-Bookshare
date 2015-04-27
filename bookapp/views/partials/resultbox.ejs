@@ -1,11 +1,14 @@
-<!-- <div class="col-sm-8"> -->
-  <div class="pin">
-    <!-- <div class="thumbnail"> -->
-      <img src="/homepage_files/320x150">
-      <!-- <div class="caption"> -->
 
-      <!-- Need listibg-books join to get titel and author -->
-      <p>
+  <div class="pin">
+  
+    <% if(data.cover === undefined){ %>
+      <img src="/homepage_files/noimage.svg.png">
+    <% }else{%>
+      <img src="<%=data.cover%>">
+    <% }%>
+
+
+      <p><!-- yes we need this p tag -->
 
       <h5><b><%= data.title %></b>
         <br>by <%= data.author %>
@@ -30,7 +33,6 @@
         <% } %>
       </h5>
 
-      <!-- TODO: only show snippet -->
       <p>
         <% if(data.description === null) { %>
           <%= "Description: No description." %>
@@ -62,4 +64,3 @@
           <p>Seller rating</p>
       </div> -->
     </div>
-  <!-- </div> -->

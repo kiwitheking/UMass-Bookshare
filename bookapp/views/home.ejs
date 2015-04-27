@@ -10,28 +10,22 @@
   <% include partials/navbarlogin.ejs %>
   <!-- Page Content -->
   <div class="container-fluid">
-    <div class="row">
+    <!-- <div class="row"> -->
       <% include partials/searchbar.ejs %>
 
-      <!--Homepage stuff-->
-      <div class="col-sm-8 col-sm-offset-2 main">
-        <% include partials/carousel.ejs %>
-      </div><!--Homepage stuff-->
         <!--Search results-->
         <div class="col-sm-8 col-sm-offset-2">
-        <div id="wrapper">
-          <div id="columns">
-          <% for(var i = 0; i < recent.length; i++) { %>
-            <%- include('partials/resultbox.ejs', {data: recent[i]}) %>
-          <% } %>
-          </div>
+        <% include partials/carousel.ejs %>
+          <!-- <div id="wrapper"> -->
+            <div id="columns">
+            <% for(var i = 0; i < recent.length; i++) { %>
+              <%- include('partials/resultbox.ejs', {data: recent[i]}) %>
+            <% } %>
+            </div>
+          <!-- </div> -->
         </div>
-        </div>
-        <!-- </div>Search results -->
-        <!-- Add pagination -->
-      <!-- </div>Homepage stuff -->
 
-    </div> <!--row-->
+    <!-- </div> row -->
   </div><!--container-fluid-->
   
   <% include includes/footer.ejs %>
