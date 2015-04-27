@@ -28,7 +28,7 @@ router.post('/upload', function(req, res){
    fs.readFile(img.path, function (err, data){
 
    var path = "./public/images/"+img.originalFilename;
-   var link = "http://localhost:3000/images/" + img.originalFilename;
+   var link = "/images/" + img.originalFilename;
   //res.send(path)
 
    fs.writeFile(path,data,function(error){
