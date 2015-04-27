@@ -1,6 +1,10 @@
 
   <div class="pin">
-    <img src="/homepage_files/noimage.svg">
+    <% if(data.cover === null){ %>
+      <img src="/homepage_files/noimage.svg">
+    <% }else{%>
+      <img src="<%=data.cover%>">
+    <% }%>
     
 
 
