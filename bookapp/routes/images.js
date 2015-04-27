@@ -35,13 +35,14 @@ router.post('/upload', function(req, res){
 
     if(error)console.log(error);
     res.send("upload success!");
-    DBI.addProfilePic(req.session.user, link, voidfcn);
+    DBI.addProfilePic(req.session.user, link, res);
     console.log(link);
   });
  });
 });
 });
+
 module.exports = router;
 
 
-function voidfcn( inputvar ){ console.log(inputvar);}
+//function voidfcn( inputvar ){ res.redirect('/profile')}
