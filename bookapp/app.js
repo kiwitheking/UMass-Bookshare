@@ -164,8 +164,33 @@ app.get('/profile', function(req, res) {
   }
 });
 
+//handles deleting a listing
+app.post('/deletelisting', function(req,res){
+  listid = req.body.listid;
+  console.log(listid);
+  db.deleteListing(listid, res,req);
+});
 
+//handles edit listing
+app.post('/updatelisting', function(req,res){
+  listid = req.body.listid;
+  console.log(listid);
+  forRent = req.body.forRent;
+  rentPrice = req.body.rentPrice;
+  forSale = req.body.forSale;
+  sellPrice = req.body.sellPrice;
+  forBorrow = req.body.forBorrow;
+  available = req.body.available;
+  description = req.body.description;
+  db.updateListing(listid, forRent, rentPrice, forSale, sellPrice, forBorrow, available, description, res, req);
+});
 
+//handles edit listing
+app.post('/editlisting', function(req,res){
+  listid = req.body.listid;
+  console.log(listid);
+  db.editListing(listid, res,req);
+});
 
 //handles logout
 app.get('/logout', function(req, res) {
