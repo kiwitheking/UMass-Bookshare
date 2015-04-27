@@ -2,6 +2,10 @@ var express = require('express');
 var router = express.Router();
 var DBI = require('DB_Interface');
 
+router.get('/upload', function(req, res, next) {
+  res.render('image-upload');
+});
+
 /* GET image. */
 router.get('/', function(req, res) {
   res.send('Image route');
@@ -9,10 +13,8 @@ router.get('/', function(req, res) {
 
 
 router.get('/upload', function(req, res) {
-  res.sendfile('./public/image-upload.html');
+  res.sendFile('../public/image-upload.ejs');
 });
-
-
 
 router.post('/upload', function(req, res){
 

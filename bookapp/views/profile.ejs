@@ -4,6 +4,7 @@
   <title>Profile Page</title>
   <% include includes/header.ejs %>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+  <link href="/stylesheets/profilepage.css" rel="stylesheet" type="text/css"/> 
 </head>
 
 <body>
@@ -62,9 +63,15 @@
           <h2>Selling</h2>
           <p><%= fname %> is selling these books...</p>
           <div class="row placeholders">
-            <% for(var i = 0; i < selling.length; i++) { %>
-              <%- include('partials/sellingsnippet.ejs', {data: selling[i]}) %>
-            <% } %>
+
+            <div class="col-sm-8">
+              <div id="columns">
+                <% for(var i = 0; i < selling.length; i++) { %>
+                  <%- include('partials/resultbox.ejs', {data: selling[i]}) %>
+                <% } %>
+              </div>
+            </div>
+
           </div> <!--row placeholders-->
 
           
@@ -77,7 +84,6 @@
               <%- include('partials/wishlistsnippet.ejs', {data: wishList[i]}) %>
             <% } %>
           </div> <!--row placeholders wishlistsnips-->
-
 
 
           <div class="col-md-5">
