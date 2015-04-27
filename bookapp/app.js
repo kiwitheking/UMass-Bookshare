@@ -15,7 +15,7 @@ var app = express();
 var session = require('client-sessions');
 
 var images = require('./routes/images');
-
+var report = require('./routes/report');
 
 app.use(session({
   cookieName: 'session',
@@ -46,6 +46,7 @@ app.use('/', express.static(path.join(__dirname, 'views')));
 app.use('/', login);
 
 app.use('/images',images);
+app.use('/report',report);
 
 app.post('/', function(req, res) {
   db.loginUser(req.body.username,req.body.password,res,req);
@@ -190,6 +191,14 @@ app.post('/editlisting', function(req,res){
   listid = req.body.listid;
   console.log(listid);
   db.editListing(listid, res,req);
+});
+
+app.get('/help', function(req, res) {
+  if(req.session.user){
+    res.render('help');
+  }else{
+    res.redirect('/');
+  }
 });
 
 //handles logout

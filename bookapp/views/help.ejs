@@ -1,0 +1,68 @@
+<!-- views/login.ejs -->
+<!DOCTYPE html>
+<html><head>
+	<title>User Guide</title>
+	<% include includes/header.ejs %>
+	<!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> --> <!-- load bootstrap css -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+	<link href="/stylesheets/help.css" rel="stylesheet" type="text/css"/>
+	<link href="/stylesheets/style.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+
+	<% include partials/navbarlogin.ejs %>
+	<div class="container-fluid">
+
+		<div class="row about-section">	
+  		<div class="col-sm-6 col-md-8 col-md-offset-2">
+  			
+  			<div class="panel panel-default slideInLeft">
+  				<div class="panel-heading" style="text-align: center; font-size:20px"><b>Create Listing</b></div>
+				 	<div class="panel-body panel-transparent">
+					<ul id="createlisting"> 
+            1. Click 'Create Listing' in the navigation bar on the top of the page. 
+            <br> 2. Fill out the form accordingly. 
+            <br>3. Click the 'My Profile' tab in the navigation bar. Your listing will be displayed in your profile.
+            <br>4. Searching for your listing by the ISBN-13 number will also display your listing. </ul>
+					</div>
+				</div>
+			</div>
+    </div> <!-- row create listing -->
+
+    <div class="row about-section">  
+      <div class="col-sm-6 col-md-8 col-md-offset-2">
+        <div class="panel panel-default slideInRight">
+          <div class="panel-heading" style="text-align: center; font-size:20px"><b>Searching</b></div>
+          <div class="panel-body panel-transparent">
+            <ul id="createlisting"> 1. Click 'Search' tab in the navigation bar at the top of the page. <br> 2. Type in your search query into the search bar.            
+          </div>
+        </div>
+      </div>
+    </div> <!-- row searching -->
+
+		<div class="row about-section">	
+  		<div class="col-sm-6 col-md-8 col-md-offset-2">
+  			<div class="panel panel-default slideInLeft">
+  				<div class="panel-heading" style="text-align: center; font-size:20px"><b>How To Buy/Rent</b></div>
+				 	<div class="panel-body panel-transparent">
+					<ul id="createlisting"> 1. Click 'Search' tab in the navigation bar at the top of the page. <br> 2. Type your search query into the search bar. <br>3. If your book is available, a listing(s) will be displayed and you can contact the seller/renter through their displayed email or phone number.<br>4. If your book is not available, you have the option of adding it to your wishlist. Once added, you will be notified via email if the book has become available </ul>
+					</div>
+				</div>
+			</div>
+		</div> <!-- row how to buy/rent -->
+
+    <div class="col about-section">  
+      <div class="col-sm-6 col-md-8 col-md-offset-2">
+        <div class="panel panel-default slideInRight">
+          <div class="panel-heading" style="text-align: center; font-size:20px"><b>Support</b></div>
+          <div class="panel-body panel-transparent">
+            <ul id="createlisting">If you still have more questions, please email bookshareumass@gmail.com</ul>
+          </div>
+        </div>
+      </div>
+    </div> <!-- row support -->
+	
+	</div> <!-- container-fluid-->
+	<% include includes/footer.ejs %>
+</body></html>

@@ -1,18 +1,24 @@
-<div class="col-sm-4 col-lg-4 col-md-4">
-  <div class="thumbnail">
-    <img src="/homepage_files/320x150">
-    <div class="caption">
 
-    <!-- Need listibg-books join to get titel and author -->
+  <div class="pin">
+    <% if(data.cover === null){ %>
+      <img src="/homepage_files/noimage.svg">
+    <% }else{%>
+      <img src="<%=data.cover%>">
+    <% }%>
+    
+
+
+      <p><!-- yes we need this p tag -->
+
       <h5><b><%= data.title %></b>
-        <br>(Edition: <%=data.version%>)
         <br>by <%= data.author %>
       </h5>
 
-      <h6><%= "ISBN-13: " + data.isbn13 %>
+      <h6>
+        <%= "ISBN-13: " + data.isbn13 %>
         <!--links to seller profile -->
         <br>Posted by: <%=data.username%>
-      <h6>
+      </h6>
 
       <h5>
       <% if(data.available === false) { %>
@@ -27,7 +33,6 @@
         <% } %>
       </h5>
 
-      <!-- TODO: only show snippet -->
       <p>
         <% if(data.description === null) { %>
           <%= "Description: No description." %>
@@ -35,7 +40,6 @@
           <%= "Description: " + data.description %>
         <% } %>
       </p>
-
 
       <!-- view seller button-->
       <p>
@@ -45,18 +49,18 @@
         </form>
       </p>
 
-    </div> <!-- caption -->
-
-    <!--Implement ratings later...-->
-    <!-- <div class="ratings">
-      <p class="pull-right">
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star"></span>
       </p>
-        <p>Seller rating</p>
-    </div> -->
-  </div>
-</div>
+
+      <!-- </div> caption -->
+      <!--Implement ratings later...-->
+      <!-- <div class="ratings">
+        <p class="pull-right">
+          <span class="glyphicon glyphicon-star"></span>
+          <span class="glyphicon glyphicon-star"></span>
+          <span class="glyphicon glyphicon-star"></span>
+          <span class="glyphicon glyphicon-star"></span>
+          <span class="glyphicon glyphicon-star"></span>
+        </p>
+          <p>Seller rating</p>
+      </div> -->
+    </div>
