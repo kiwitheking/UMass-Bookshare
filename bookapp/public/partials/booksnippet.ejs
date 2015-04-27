@@ -1,0 +1,37 @@
+<div class="col-sm-4 col-lg-4 col-md-4">
+  <div class="thumbnail">
+    <img src="<%data.cover%>">
+    <div class="caption">
+
+      <h5><a href="#"><%=data.title%> (Edition: <%=data.version%>)</a>
+        <br>by <%=data.author%>
+      </h5>
+
+      <h5><%= "Selling Price: $"+data.sellprice %>
+        <br><%= "Rent Price: $"+data.rentprice %>
+      </h5>
+      
+      <!-- TODO: only show snippet -->
+      <p>
+        <% if(data.description === null) { %>
+          <%= "Description: No description." %>
+        <% } else {%>
+          <%= "Description: " + data.description %>
+        <% } %>
+      </p>
+
+    </div> <!-- caption -->
+
+    <!--Implement ratings later...-->
+    <!-- <div class="ratings">
+      <p class="pull-right">
+        <span class="glyphicon glyphicon-star"></span>
+        <span class="glyphicon glyphicon-star"></span>
+        <span class="glyphicon glyphicon-star"></span>
+        <span class="glyphicon glyphicon-star"></span>
+        <span class="glyphicon glyphicon-star"></span>
+      </p>
+        <p>Seller rating</p>
+    </div> -->
+  </div>
+</div>
