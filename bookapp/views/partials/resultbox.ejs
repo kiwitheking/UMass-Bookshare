@@ -1,20 +1,21 @@
-<div class="col
--sm-4 col-lg-4 col-md-4">
-  <div class="thumbnail">
-    <img src="/homepage_files/320x150">
-    <div class="caption">
+<!-- <div class="col-sm-8"> -->
+  <div class="pin">
+    <!-- <div class="thumbnail"> -->
+      <img src="/homepage_files/320x150">
+      <!-- <div class="caption"> -->
 
-    <!-- Need listibg-books join to get titel and author -->
+      <!-- Need listibg-books join to get titel and author -->
+      <p>
+
       <h5><b><%= data.title %></b>
         <br>by <%= data.author %>
       </h5>
 
       <h6>
         <%= "ISBN-13: " + data.isbn13 %>
-
         <!--links to seller profile -->
         <br>Posted by: <%=data.username%>
-      <h6>
+      </h6>
 
       <h5>
       <% if(data.available === false) { %>
@@ -38,7 +39,6 @@
         <% } %>
       </p>
 
-
       <!-- view seller button-->
       <p>
         <form action="/sellerprofile" method="post">
@@ -47,18 +47,19 @@
         </form>
       </p>
 
-    </div> <!-- caption -->
-
-    <!--Implement ratings later...-->
-    <!-- <div class="ratings">
-      <p class="pull-right">
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star"></span>
       </p>
-        <p>Seller rating</p>
-    </div> -->
-  </div>
-</div>
+
+      <!-- </div> caption -->
+      <!--Implement ratings later...-->
+      <!-- <div class="ratings">
+        <p class="pull-right">
+          <span class="glyphicon glyphicon-star"></span>
+          <span class="glyphicon glyphicon-star"></span>
+          <span class="glyphicon glyphicon-star"></span>
+          <span class="glyphicon glyphicon-star"></span>
+          <span class="glyphicon glyphicon-star"></span>
+        </p>
+          <p>Seller rating</p>
+      </div> -->
+    </div>
+  <!-- </div> -->

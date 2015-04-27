@@ -3,7 +3,7 @@
 <html lang="en"><head>
   <title>UMass Bookshare Home</title>
   <% include includes/header.ejs %>
-<!--         <link href="/stylesheets/homepage.css" rel="stylesheet" type="text/css"/>  -->
+        <link href="/stylesheets/homepage.css" rel="stylesheet" type="text/css"/> 
 </head>
 
 <body>
@@ -16,16 +16,20 @@
       <!--Homepage stuff-->
       <div class="col-sm-8 col-sm-offset-2 main">
         <% include partials/carousel.ejs %>
-
+      </div><!--Homepage stuff-->
         <!--Search results-->
-        <div class="row search-results">
+        <div class="col-sm-8 col-sm-offset-2">
+        <div id="wrapper">
+          <div id="columns">
           <% for(var i = 0; i < recent.length; i++) { %>
             <%- include('partials/resultbox.ejs', {data: recent[i]}) %>
           <% } %>
-          
-        </div><!--Search results-->
+          </div>
+        </div>
+        </div>
+        <!-- </div>Search results -->
         <!-- Add pagination -->
-      </div><!--Homepage stuff-->
+      <!-- </div>Homepage stuff -->
 
     </div> <!--row-->
   </div><!--container-fluid-->
