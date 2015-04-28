@@ -65,11 +65,9 @@
           <div class="row placeholders">
 
             <div class="col-sm-8">
-              <div id="columns">
                 <% for(var i = 0; i < selling.length; i++) { %>
-                  <%- include('partials/resultbox.ejs', {data: selling[i]}) %>
+                  <%- include('partials/sellingsnippet.ejs', {data: selling[i]}) %>
                 <% } %>
-              </div>
             </div>
 
           </div> <!--row placeholders-->

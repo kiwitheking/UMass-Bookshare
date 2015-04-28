@@ -1,11 +1,11 @@
 
 <div class="col-xs-6 col-sm-2 placeholder">
-  <img data-src="holder.js/200x200/auto/sky" class="img-thumbnail" alt="200x200" src="<%=data.cover%>" data-holder-rendered="true">
+  <img data-src="holder.js/200x200/auto/sky" src="<%=data.cover%>" data-holder-rendered="true">
   <h4><%=data.title%></h4> <!--Get title-->
-  <span class="text-muted"><%=data.author%></span> <!--Get Author-->
-   <p>
-        <form action="/deletelisting" method="post">
-          <button type="submit" class="form-control btn btn-success btn-sm">Delete Listing</button>
+  <span class="text-muted">by <%=data.author%></span> <!--Get Author-->
+     <p>
+        <form action="/editlisting" method="post">
+          <button type="submit" class="form-control btn btn-success btn-sm">Edit Listing</button>
           <input type="hidden" name="listid" value="<%=data.listid%>">
         </form>
       </p>
