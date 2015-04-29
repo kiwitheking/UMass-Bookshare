@@ -13,6 +13,7 @@
     <div class="row">
       <div class="col-md-3 col-md-offset-2">
         <h2><span class="fa fa-book"></span> Create a listing</h2>
+        <h5>Have a book that you want to sell, rent out, or share? Create a listing for it here!</h5>
         <!-- show any messages that come back with authentication -->
         <% if (message !== '') { %>
           <% if (message.length > 15) { %>
@@ -51,6 +52,8 @@
           </div> <!--col-sm-8-->
         </div> <!--form-group-->
 
+
+        <!--Do you want to SELL? -->
         <div class="form-group">
           <label for="forSale" class="col-sm-4 control-label">Sell this book?</label>
           <div class="col-sm-3">
@@ -68,6 +71,8 @@
           </div> <!--col-sm-4-->
         </div> <!--form-group-->
 
+
+        <!--Do you want to RENT? -->
         <div class="form-group">
           <label for="forRent" class="col-sm-4 control-label">Rent this book?</label>
           <div class="col-sm-3">
@@ -85,6 +90,7 @@
           </div>
         </div> <!--form-group-->
 
+        <!--Do you want to SHARE? -->
         <div class="form-group">
           <label for="forBorrow" class="col-sm-4 control-label">Share this book?</label>
           <div class="col-sm-3">
@@ -100,17 +106,6 @@
               <input type"text" class="form-control" placeholder="Free" disabled/>
             </div>
           </div> <!--col-sm-4-->
-        </div> <!--form-group-->
-
-        <div class="form-group">
-          <label for="available" class="col-sm-4 control-label">Is it available now?</label>
-          <div class="col-sm-8">
-            <!-- <input type="available" class="form-control" name="available" placeholder="Is this available?(True/False)"> -->
-            <div class="input-group">
-              <label class="radio-inline"><input type="radio" name="available" value="t">Yes</label>
-              <label class="radio-inline"><input type="radio" name="available" value="f">No</label>
-            </div>
-          </div> <!--col-sm-8-->
         </div> <!--form-group-->
 
         <div class="form-group">

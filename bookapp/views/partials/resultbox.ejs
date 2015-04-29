@@ -20,18 +20,30 @@
         <br>Posted by: <%=data.username%>
       </h6>
 
-      <h5>
-      <% if(data.available === false) { %>
-          <%= "This book is currently not available." %>
+      <p>
+        <% if(data.forsale == true){ %>
+         <%= "Sell Price: $"+data.sellprice %>
         <% } else {%>
-          <% if(data.forSale === true){ %>
-            <%= "Selling Price: $"+data.sellprice %>
+          <%= "This book is not for sale." %>
           <% } %>
-          <% if(data.forSale === true){ %>
-            <br><%= "Rent Price: $"+data.rentprice %>
+      </p>
+
+      <p>
+        <% if(data.forrent == true){ %>
+         <%= "Rent Price: $"+data.rentprice %>
+        <% } else {%>
+          <%= "This book is not for rent." %>
           <% } %>
-        <% } %>
-      </h5>
+      </p>
+
+      <p>
+        <% if(data.forborrow == true){ %>
+         <%= "This book can be borrowed." %>
+        <% } else {%>
+          <%= "This book cannot be borrowed." %>
+          <% } %>
+      </p>
+
 
       <p>
         <% if(data.description === null) { %>

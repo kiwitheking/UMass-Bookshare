@@ -1,17 +1,31 @@
 <!DOCTYPE html>
-<html><head>
+
+<html lang="en"><head>
   <title>Upload Photo</title>
   <% include includes/header.ejs %>
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" type="text/css"> <!-- load fontawesome -->
+
 </head>
 
 <body>
-  <% include partials/navbarlogin.ejs %>
-	<form method="post" action ="/images/upload" enctype="multipart/form-data">
-	  <input type="text" name ="name" value ="001"/>
-	  <input type="file" name ="images" />
-	  <br />
-	  <input type="submit" value= "post"/>
-	</form>
+
+  	<% include partials/navbarlogin.ejs %>
+
+  	<div class="container-fluid">
+
+	  	<div class="col-md-8">
+		  	<div class="row">
+				<form method="post" action ="/images/upload" enctype="multipart/form-data">
+				  <input type="text" name ="name" value ="001"/>
+				  <input type="file" name ="images" />
+				  <br />
+				  <input type="submit" value= "post"/>
+				</form>
+			</div>
+		</div>
+
+	</div>
+
+	<% include includes/footer.ejs %>
 
 </body>

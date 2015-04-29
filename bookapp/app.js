@@ -7,7 +7,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var db = require('DB_Interface.js')
 var login = require('./routes/login');
-var profile = require('./routes/profile');
 var sequelize = require('sequelize');
 var app = express();
 var session = require('client-sessions');
@@ -20,10 +19,6 @@ app.use(session({
   duration: 7 * 30 * 60 * 1000,
   activeDuration: 5 * 60 * 1000,
 }));
-
-var pg = require('pg');
-//put in your own connection here
-var conString = "postgres://postgres:postgres@localhost/UMass-Books";
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -45,11 +40,12 @@ app.use('/', login);
 app.use('/images',images);
 app.use('/report',report);
 
+//login user from login page
 app.post('/', function(req, res) {
   db.loginUser(req.body.username,req.body.password,res,req);
 });
 
-//Home page
+//gets Home page and displays recent listing
 app.get('/home', function(req, res){
   if(req.session.user) {
     db.recentListing(res,req);
@@ -58,7 +54,7 @@ app.get('/home', function(req, res){
   }
 });
 
-//Home page
+//displays wishlist page for a user
 app.get('/wishlist', function(req, res){
   if(req.session.user) {
     db.wishListing(req.session.user,res,req);
@@ -67,7 +63,7 @@ app.get('/wishlist', function(req, res){
   }
 });
 
-//add to wishlist page
+//add to users wishlist and removes hyphen in isbn
 app.post('/addtowishlist', function(req, res){
   if(req.session.user) {
     console.log("add to wishlist");
@@ -86,12 +82,14 @@ app.get('/createlisting', function(req, res) {
   }
 });
 
+//gets profile to edit for a user
 app.get('/editprofile', function(req,res){
   if(req.session.user){
     db.editProfile(req.session.user, res, req);
   }
 });
 
+//updates profile after editting it
 app.post('/editprofile', function(req,res){
   db.updateProfile(req.session.user, req.body.firstName, req.body.lastName, req.body.email, req.body.phone, req.body.institution, res, req);
 });
@@ -112,7 +110,6 @@ app.post('/createlisting', function(req, res) {
     var isbn13_nohyphen = req.body.isbn13.replace(/[^\d]/g, '');
     console.log(isbn13_nohyphen);
     db.addBookbyISBN(isbn13_nohyphen,username, forRent, rentPrice, forSale, sellPrice, forBorrow, available, description, res, req);
-    //db.makeListing(username, isbn13, forRent, rentPrice, forSale, sellPrice, forBorrow, available, description, res, req);
     // for field checks
     // res.render('createlisting',{message:'Invalid input. Please try again.'});
   } else {
@@ -121,7 +118,7 @@ app.post('/createlisting', function(req, res) {
   }
 });
 
-
+//searching for book on the home page
 app.post('/home', function(req,res){
   if(req.body.searchTerm == ''){
     res.redirect('/home');
@@ -130,19 +127,13 @@ app.post('/home', function(req,res){
   db.search(search,res);
 });
 
+//view listing for a certain book
 app.post('/viewListing', function(req,res){
   isbn13 = req.body.isbn13;
   db.postBookListing(isbn13, res);
 });
 
-app.post('/listing', function(req, res) {
-  // console.log( typeof req.body.listingid);
-  // console.log(listid);
-  id = req.body.listingid;
-  console.log(id);
-  db.getListing(id, res);
-});
-
+//view seller's profile from their listing
 app.post('/sellerprofile', function(req,res){
   seller = req.body.seller;
   console.log(seller);
@@ -150,6 +141,7 @@ app.post('/sellerprofile', function(req,res){
 });
 
 
+//renders profile twice since wishlist and selling arrays are sometimes undefined
 app.get('/profile', function(req, res) {
   if (req.session && req.session.user) { // Check if session exists
     // lookup the user in the DB by pulling their email from the session
@@ -191,6 +183,7 @@ app.post('/editlisting', function(req,res){
   db.editListing(listid, res,req);
 });
 
+//renders the support page
 app.get('/help', function(req, res) {
   if(req.session.user){
     res.render('help');
@@ -199,7 +192,7 @@ app.get('/help', function(req, res) {
   }
 });
 
-//handles logout
+//handles logout of a user, resets user and sends to login
 app.get('/logout', function(req, res) {
   console.log('logout');
   req.session.reset();
@@ -211,20 +204,17 @@ app.get('/signup', function(req, res) {
   res.render('signup',{message:''});
 });
 
+//renders the about page
 app.get('/about', function(req, res){
     res.render('about');
 });
 
+//renders error page
 app.get('/error', function(req, res){
     res.render('error');
 });
 
-var doNothing = function doNothing_(value)
-{
-  console.log(value);
-}
-
-//handles signup post, slow but uses db interface
+//handles signing up for a user
 app.post('/signup',function(req,res){
   username = req.body.username;
   password = req.body.password;

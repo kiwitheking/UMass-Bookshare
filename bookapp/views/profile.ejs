@@ -4,6 +4,7 @@
   <title>Profile Page</title>
   <% include includes/header.ejs %>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+  <link href="/stylesheets/profilepage.css" rel="stylesheet" type="text/css"/> 
 </head>
 
 <body>
@@ -16,8 +17,10 @@
       <div class="row-fluid col-sm-10 col-sm-offset-3 col-md-12 col-md-offset-2 main">
         
         <h1 class="page-header"><%= fname %> <%= lname %></h1>
+        <h5><%= "Welcome to your profile page, " + fname + "! This is where you can see what books you have posted and what's on your wishlist!" %></h5><br><br>
         <!-- <h1 class="page-header"><%= username %>'s seller profile</h1> -->
         <!-- profile picture -->
+
           <div class="col-md-5">
             <img data-src="holder.js/200x200/auto/vine" class="img-thumbnail" alt="200x200" src="<%=profilepic%>"  data-holder-rendered="true">
           </div> <!--col-md-3 col-md-offset-2-->
@@ -62,9 +65,13 @@
           <h2>Selling</h2>
           <p><%= fname %> is selling these books...</p>
           <div class="row placeholders">
-            <% for(var i = 0; i < selling.length; i++) { %>
-              <%- include('partials/sellingsnippet.ejs', {data: selling[i]}) %>
-            <% } %>
+
+            <div class="col-sm-8">
+                <% for(var i = 0; i < selling.length; i++) { %>
+                  <%- include('partials/sellingsnippet.ejs', {data: selling[i]}) %>
+                <% } %>
+            </div>
+
           </div> <!--row placeholders-->
 
           
@@ -77,7 +84,6 @@
               <%- include('partials/wishlistsnippet.ejs', {data: wishList[i]}) %>
             <% } %>
           </div> <!--row placeholders wishlistsnips-->
-
 
 
           <div class="col-md-5">
