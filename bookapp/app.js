@@ -192,6 +192,12 @@ app.get('/help', function(req, res) {
   }
 });
 
+app.get('/FAQ', function(req, res) {
+  if(!req.session.user){
+    res.render('faq');
+  }
+});
+
 //handles logout of a user, resets user and sends to login
 app.get('/logout', function(req, res) {
   console.log('logout');
@@ -204,9 +210,16 @@ app.get('/signup', function(req, res) {
   res.render('signup',{message:''});
 });
 
-//renders the about page
-app.get('/about', function(req, res){
-    res.render('about');
+//renders the team page
+app.get('/team', function(req, res){
+  if(req.session.user) {
+    res.render('team');
+  }
+});
+
+//renders the team2 page when the user is not logged in
+app.get('/team2', function(req, res) {
+  res.render('team2');
 });
 
 //renders error page
