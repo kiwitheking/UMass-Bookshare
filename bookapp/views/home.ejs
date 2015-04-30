@@ -10,26 +10,23 @@
   <% include partials/navbarlogin.ejs %>
   <!-- Page Content -->
   <div class="container-fluid">
-    <!-- <div class="row"> -->
-    <div><br><h3 style="text-align: center">Need a book? Search for it here to see who is selling it at UMass! %></h3></div>
 
-      <% include partials/searchbar.ejs %>
+    <div class="row">
+      <h3 style="text-align: center">Need a book? Search for it here to see who is selling it at UMass!</h3>
+    </div>
+    <% include partials/searchbar.ejs %>
 
-        <!--Search results-->
-        <div class="col-sm-8 col-sm-offset-2">
-        <div class="row list-group placeholders">
-          <% include partials/carousel.ejs %>
+    <!--Search results-->
+    <div class="col-sm-8 col-sm-offset-2">
+    <div class="row list-group placeholders">
+      <% include partials/carousel.ejs %>
 
-              <!-- <div id="columns"> -->
-              <% for(var i = 0; i < recent.length; i++) { %>
-                <%- include('partials/resultbox.ejs', {data: recent[i]}) %>
-              <% } %>
-              <!-- </div> -->
+      <% for(var i = 0; i < recent.length; i++) { %>
+        <%- include('partials/resultbox.ejs', {data: recent[i]}) %>
+      <% } %>
+      </div>
+    </div>
 
-          </div>
-        </div>
-
-    <!-- </div> row -->
   </div><!--container-fluid-->
   
   <% include includes/footer.ejs %>
