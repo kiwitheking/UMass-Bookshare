@@ -193,9 +193,7 @@ app.get('/help', function(req, res) {
 });
 
 app.get('/FAQ', function(req, res) {
-  if(!req.session.user){
-    res.render('faq');
-  }
+   res.render('faq');
 });
 
 //handles logout of a user, resets user and sends to login
