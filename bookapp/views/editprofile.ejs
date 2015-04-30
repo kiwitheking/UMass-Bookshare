@@ -18,18 +18,24 @@
         
         <h1 class="page-header">Edit Profile</h1>
         <h2> <%= username %> </h2>
-        <!-- <h1 class="page-header"><%= username %>'s seller profile</h1> -->
+        
         <!-- profile picture -->
-          <div class="col-md-5">
-            <img data-src="holder.js/200x200/auto/vine" class="img-thumbnail" alt="200x200" src="<%=profilepic%>" data-holder-rendered="true">
-            <a href="/images/upload">Add/Change your profile picture</a>
-          </div> <!--col-md-3 col-md-offset-2-->
+          <div class="col-md-3">
 
-        <!--Profile info-->
-        <div class="col-md-5">
+            <% if (profilepic === null || profilepic === '') { %>
+              <img class="img-thumbnail" alt="200x200" src="/images/profile.png" data-holder-rendered="true">
+            <% } else { %>
+              <img class="img-thumbnail" alt="200x200" src="<%=profilepic%>"  data-holder-rendered="true">    
+            <% } %>
 
-              <!-- Sign Up Form -->
+            <br>Change your profile picture:
+            <br><%= include partials/imgupload.ejs %>
+          </div> 
+
+
+    <!-- Form -->
     <div class="col-md-5">
+
       <!-- <form action="/"> -->
       <form action="/editprofile" method="post">
         <div class="form-horizontal">
@@ -76,10 +82,10 @@
             </div> <!--col-sm-8-->
           </div> <!--form-group-->
 
-
-        </div><!--col-md-5-->
-
-      </div><!-- col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main -->
+      </div>
+      
+    </div><!--col-md-5-->
+  </div><!-- col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main -->
 
   </div><!-- /.container-fluid -->
 

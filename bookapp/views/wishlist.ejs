@@ -21,16 +21,18 @@
       	 <!--Search results-->
         <div class="row search-results">
           <% for(var i = 0; i < wishList.length; i++) { %>
-	          <div class="col-sm-4 col-lg-4 col-md-4">
-              <div class="thumbnail">
-                 <img src=<%= wishList[i].cover%>>
-                <div class="caption">
-                <!-- titel and author -->
-                  <h5><a href="#"><%= wishList[i].title %></a>
-                    <br>by <%= wishList[i].author %>
-                  </h5>
-                </div> <!-- caption -->
-              </div>
+            <div class="item col-xs-4 col-lg-4">
+                <div class="thumbnail">
+                    <img class="group list-group-image" src="<%=wishList[i].cover%>" data-holder-rendered="true">
+                    <div class="caption">
+                        <h5 class="group inner list-group-item-heading">
+                           <b><%= wishList[i].title %></b></h5>
+                        <p class="group inner list-group-item-text">
+                           by <%= wishList[i].author %></p>
+                        <div class="row">
+                        </div>
+                    </div>
+                </div>
             </div>
           <% } %>
         </div><!--Search results-->

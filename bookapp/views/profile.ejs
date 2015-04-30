@@ -19,11 +19,15 @@
         <h1 class="page-header"><%= fname %> <%= lname %></h1>
         <h5><%= "Welcome to your profile page, " + fname + "! This is where you can see what books you have posted and what's on your wishlist!" %></h5><br><br>
         <!-- <h1 class="page-header"><%= username %>'s seller profile</h1> -->
-        <!-- profile picture -->
 
+        <!-- profile picture -->
           <div class="col-md-5">
-            <img data-src="holder.js/200x200/auto/vine" class="img-thumbnail" alt="200x200" src="<%=profilepic%>"  data-holder-rendered="true">
-          </div> <!--col-md-3 col-md-offset-2-->
+            <% if (profilepic === null || profilepic === '') { %>
+              <img class="img-thumbnail" alt="200x200" src="/images/profile.png" data-holder-rendered="true">
+            <% } else { %>
+              <img class="img-thumbnail" alt="200x200" src="<%=profilepic%>"  data-holder-rendered="true">    
+            <% } %>
+          </div> 
 
         <!--Profile info-->
         <div class="col-md-5">

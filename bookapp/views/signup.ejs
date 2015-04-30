@@ -9,12 +9,13 @@
 <body>
   <% include partials/navbar.ejs%>
 
-  <div class="container-fluid">
+  <div class="container">
+  <div class="row-fluid col-sm-10 col-sm-offset-3 col-md-12 col-md-offset-1 main">
 
     <!--Sign up-->
-    <div class="row ">
-      <div class="col-md-3 col-md-offset-2">
-        <h1><span class="fa fa-sign-in"></span> Sign Up</h1>
+    <div class="row">
+      <div class="col-md-3">
+        <h2><span class="fa fa-sign-in"></span> Sign Up</h2>
         <!-- show any messages that come back with authentication -->
         <% if (message !== '') { %>
           <% if (message.length > 15) { %>
@@ -26,6 +27,13 @@
       </div>
     </div>
 
+
+    <!-- profile picture -->
+    <div class="col-md-4">
+      <img class="img-thumbnail" alt="200x200" src="/images/profile.png" data-holder-rendered="true">
+      <br>Optional: Choose a profile picture:
+      <br><%= include partials/imgupload.ejs %>
+    </div> <!--col-md-3 col-md-offset-2-->
 
     <!-- Sign Up Form -->
     <div class="col-md-5">
@@ -92,7 +100,7 @@
 
           <div class="form-group">
             <div class="col-sm-offset-4 col-sm-8">
-              <button type="submit" class="form-control btn btn-warning btn-lg">Signup</button>
+              <button type="submit" class="form-control btn btn-success btn-md">Signup</button>
             </div> <!--col-sm-8-->
           </div> <!--form-group-->
           
@@ -104,6 +112,7 @@
       </form>
 
     </div> <!--col-md-5-->
+    </div>
   </div> <!--container-fluid-->
   
   <% include includes/footer.ejs %>

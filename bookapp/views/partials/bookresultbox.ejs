@@ -1,39 +1,30 @@
-<div class="col-sm-4 col-lg-4 col-md-4 col-middle">
-  <div class="thumbnail">
-     <% if(data.cover === null){ %>
+<div class="item col-xs-4 col-lg-4">
+    <div class="thumbnail">
+      <% if(data.cover === null){ %>
       <img src="/homepage_files/noimage.svg">
-    <% }else{%>
-      <img src="<%=data.cover%>">
-    <% }%>
-    <div class="caption">
+      <% }else{%>
+        <img class="group list-group-image" src="<%=data.cover%>" data-holder-rendered="true">
+      <% } %>
+        <div class="caption">
+            <h4 class="group inner list-group-item-heading hideoverflow">
+               <b><%= data.title %></b></h4>
+            <p class="group inner list-group-item-text hideoverflow">
+               by <%= data.author %></p>
+            <p class="group inner list-group-item-text">
+              <%= "ISBN-13: " + data.isbn13 %>
+              <br><%= "ISBN-10: " + data.isbn10 %></p>
 
-    <!-- Need listibg-books join to get titel and author -->
-      <h5><b><%= data.title %></b>
-        <br>by <%= data.author %>
-      </h5>
-
-      <h6><%= "ISBN-13: " + data.isbn13 %>
-        <br><%= "ISBN-10: " + data.isbn10 %>
-      </h6>
-
-      <form action="/viewListing" method="post">
-        <button type="submit" class="form-control btn btn-info btn-sm">View Listing</button>
-        <input type="hidden" name="isbn13" value="<%=data.isbn13%>">
-      </form>
-
-     
-    </div> <!-- caption -->
-
-    <!--Implement ratings later...-->
-    <!-- <div class="ratings">
-      <p class="pull-right">
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star"></span>
-      </p>
-        <p>Seller rating</p>
-    </div> -->
-  </div>
+            <div class="row"><div class="col-md-6 col-md-6">
+              
+            </div></div>
+            <div class="row">
+                <!-- <div class="col-md-6 col-md-6"> -->
+                    <form action="/viewListing" method="post">
+                      <button type="submit" class="form-control btn btn-info btn-sm">View Listing</button>
+                      <input type="hidden" name="isbn13" value="<%=data.isbn13%>">
+                    </form>
+               <!-- </div> -->
+            </div>
+        </div>
+    </div>
 </div>
