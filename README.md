@@ -16,6 +16,8 @@ From the home screen, enter a username and password and by pressing the "Sign In
 
 ##Instructions for installation
 
+Note:  If you are on an ubuntu system setup can be run via running ./install.sh in the UMass-Bookshare folder.  THi will setup the database, node and any other necessary libraries
+
 ### Setting up database:
 
 Install Postgres and Git. Note: On a Mac, you will need [Homebrew] (http://brew.sh). Replace apt-get with brew.  Run these from terminal.
@@ -38,7 +40,7 @@ Create a role for UMass-Books and create the database, run the following command
     
     If the above command does not work, enter the following command:
     
-        ALTER USER Postgres WITH PASSWORD 'password';
+        ALTER USER postgres WITH PASSWORD 'password';
     
         Type ctrl-D to exit posql
 
