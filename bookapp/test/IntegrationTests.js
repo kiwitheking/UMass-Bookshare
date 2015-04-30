@@ -1,6 +1,6 @@
 //this integreation test will simulate one use case
 //use case:user connect->login->make a listing->
-//search the book he just listed to make sure the book has been listed-> log out. 
+//check the book has been listed-> log out. 
 //make sure run the server before test it.
 
 var assert = require ("chai").assert;
