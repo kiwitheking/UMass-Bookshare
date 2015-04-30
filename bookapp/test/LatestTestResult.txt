@@ -1,0 +1,397 @@
+test result for 1.0 release tested at 4/30/2015 by Qiwen Wang
+
+
+student@student-230-VirtualBox:~/UMass-Bookshare/bookapp$ mocha
+No configuration file found, using default values
+
+
+  ✓ Server is connected (388ms)
+302
+  ✓ Home page connected
+200
+  ✓ signup page connected
+302
+  ✓ profile page connected
+302
+  ✓ wishlist page connected
+  ✓ Trying to connect a non exist website
+  Integreation Test
+    ✓ simulate a use case
+
+  Sample test
+    making sure test is working
+      ✓ should return -1 when the value is not present
+
+  addUserBasic
+success|ok() is deprecated and will be removed in 2.1, please use promise-style instead.
+    ✓ add a new user
+
+  getUser
+    ✓ respond with matching records
+
+  verifyUser
+undefined Eri Banno
+{ title_latin: 'Genki I',
+  notes: '',
+  dewey_normal: '0',
+  title_long: 'Genki I (Second Edition) an Integrated Course in Elementary Japanese (Volume 1)',
+  lcc_number: '',
+  isbn10: '4789014401',
+  book_id: 'genki_i',
+  publisher_text: 'The Japan Times',
+  publisher_name: 'The Japan Times',
+  summary: '',
+  isbn13: '9784789014403',
+  author_data: 
+   [ { id: 'eri_banno', name: 'Eri Banno' },
+     { id: 'yoko_ikeda', name: 'Yoko Ikeda' },
+     { id: 'yutaka_ohno', name: 'Yutaka Ohno' },
+     { id: 'chikako_shinagawa', name: 'Chikako Shinagawa' },
+     { name: 'Kyoko Tokashiki', id: 'kyoko_tokashiki' } ],
+  physical_description_text: '7.2"x10.2"x1.0"; 1.9 lb; 382 pages',
+  publisher_id: 'the_japan_times',
+  language: '',
+  urls_text: '',
+  marc_enc_level: '~',
+  title: 'Genki I',
+  dewey_decimal: '',
+  subject_ids: [],
+  awards_text: '',
+  edition_info: 'Paperback; 2011' }
+Executing (default): SELECT "username", "password", "age", "firstname", "lastname", "sex", "email", "phone", "institution", "profilepic" FROM "users" AS "Users" WHERE "Users"."username" = 'cute';
+Executing (423f8f3a-de1c-4381-98c6-13e8c32f194f): START TRANSACTION;
+Executing (default): SELECT "username", "password", "age", "firstname", "lastname", "sex", "email", "phone", "institution", "profilepic" FROM "users" AS "Users" WHERE "Users"."username" = 'testuser';
+Executing (default): SELECT "username", "password", "age", "firstname", "lastname", "sex", "email", "phone", "institution", "profilepic" FROM "users" AS "Users" WHERE "Users"."username" = 'testuser';
+Executing (423f8f3a-de1c-4381-98c6-13e8c32f194f): SET SESSION TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+Executing (423f8f3a-de1c-4381-98c6-13e8c32f194f): SET autocommit = 1;
+Executing (423f8f3a-de1c-4381-98c6-13e8c32f194f): SELECT "username", "password", "age", "firstname", "lastname", "sex", "email", "phone", "institution", "profilepic" FROM "users" AS "Users" WHERE "Users"."username" = 'testuser';
+Executing (423f8f3a-de1c-4381-98c6-13e8c32f194f): COMMIT;
+Executing (1262cb21-927a-4060-8403-ee977322a755): START TRANSACTION;
+    ✓ just verifyUser users (282ms)
+Error!
+Executing (default): SELECT "username", "password", "age", "firstname", "lastname", "sex", "email", "phone", "institution", "profilepic" FROM "users" AS "Users" WHERE "Users"."username" = 'testuser';
+Possibly unhandled TypeError: Cannot read property 'firstname' of undefined
+    at /home/student/UMass-Bookshare/bookapp/test/UnitTests.js:37:52
+    at null.<anonymous> (/home/student/UMass-Bookshare/bookapp/node_modules/DB_user.js:156:3)
+    at tryCatch1 (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/node_modules/bluebird/js/main/util.js:45:21)
+    at Promise._callHandler (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/node_modules/bluebird/js/main/promise.js:571:13)
+    at Promise._settlePromiseFromHandler (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/node_modules/bluebird/js/main/promise.js:581:18)
+    at Promise._settlePromiseAt (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/node_modules/bluebird/js/main/promise.js:713:18)
+    at Promise._settlePromiseAt (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/lib/promise.js:76:18)
+    at Promise._settlePromises (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/node_modules/bluebird/js/main/promise.js:854:14)
+    at Async._consumeFunctionBuffer (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/node_modules/bluebird/js/main/async.js:85:12)
+    at Async.consumeFunctionBuffer (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/node_modules/bluebird/js/main/async.js:40:14)
+    at process._tickCallback (node.js:448:13)
+Possibly unhandled SequelizeValidationError: Validation error: Validation isEmail failed,
+Validation error: Validation isNumeric failed
+    at /home/student/UMass-Bookshare/bookapp/node_modules/sequelize/lib/instance-validator.js:153:14
+    at tryCatch1 (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/node_modules/bluebird/js/main/util.js:45:21)
+    at Promise._callHandler (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/node_modules/bluebird/js/main/promise.js:571:13)
+    at Promise._settlePromiseFromHandler (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/node_modules/bluebird/js/main/promise.js:581:18)
+    at Promise._settlePromiseAt (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/node_modules/bluebird/js/main/promise.js:713:18)
+    at Promise._settlePromiseAt (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/lib/promise.js:76:18)
+    at Promise._settlePromises (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/node_modules/bluebird/js/main/promise.js:854:14)
+    at Async._consumeFunctionBuffer (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/node_modules/bluebird/js/main/async.js:85:12)
+    at Async.consumeFunctionBuffer (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/node_modules/bluebird/js/main/async.js:40:14)
+    at process._tickCallback (node.js:448:13)
+Executing (1262cb21-927a-4060-8403-ee977322a755): SET SESSION TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+Possibly unhandled TypeError: undefined is not a function
+    at null.<anonymous> (/home/student/UMass-Bookshare/bookapp/node_modules/DB_user.js:156:3)
+    at tryCatch1 (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/node_modules/bluebird/js/main/util.js:45:21)
+    at Promise._callHandler (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/node_modules/bluebird/js/main/promise.js:571:13)
+    at Promise._settlePromiseFromHandler (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/node_modules/bluebird/js/main/promise.js:581:18)
+    at Promise._settlePromiseAt (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/node_modules/bluebird/js/main/promise.js:713:18)
+    at Promise._settlePromiseAt (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/lib/promise.js:76:18)
+    at Promise._settlePromises (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/node_modules/bluebird/js/main/promise.js:854:14)
+    at Async._consumeFunctionBuffer (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/node_modules/bluebird/js/main/async.js:85:12)
+    at Async.consumeFunctionBuffer (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/node_modules/bluebird/js/main/async.js:40:14)
+    at process._tickCallback (node.js:448:13)
+Executing (1262cb21-927a-4060-8403-ee977322a755): SET autocommit = 1;
+
+  addBookbyISBN
+Executing (1262cb21-927a-4060-8403-ee977322a755): SELECT "title", "author", "isbn10", "isbn13", "publicationdate", "version", "cover" FROM "book" AS "Book" WHERE "Book"."isbn13" = 9784789014401;
+    ✓ addBookbyISBN
+
+  searchBook
+Executing (1262cb21-927a-4060-8403-ee977322a755): COMMIT;
+Executing (default): Select book.author, book.title, book.isbn13, Wishlist.username,users.firstname,users.lastname, users.email FROM Wishlist INNER JOIN book ON Wishlist.isbn13=book.isbn13 INNER JOIN users ON Wishlist.username=users.username WHERE Wishlist.isbn13= '9784789014401';
+Executing (40307e79-4770-438e-97f3-cf0fe5cd738b): START TRANSACTION;
+Possibly unhandled SequelizeDatabaseError: operator does not exist: character = bigint
+    at module.exports.Query.formatError (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/lib/dialects/postgres/query.js:419:16)
+    at null.<anonymous> (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/lib/dialects/postgres/query.js:106:21)
+    at emit (events.js:95:17)
+    at Query.handleError (/home/student/UMass-Bookshare/bookapp/node_modules/pg/lib/query.js:99:8)
+    at null.<anonymous> (/home/student/UMass-Bookshare/bookapp/node_modules/pg/lib/client.js:166:26)
+    at emit (events.js:95:17)
+    at Socket.<anonymous> (/home/student/UMass-Bookshare/bookapp/node_modules/pg/lib/connection.js:109:12)
+    at Socket.emit (events.js:95:17)
+    at Socket.<anonymous> (_stream_readable.js:765:14)
+    at Socket.emit (events.js:92:17)
+    at emitReadable_ (_stream_readable.js:427:10)
+    at emitReadable (_stream_readable.js:423:5)
+    at readableAddChunk (_stream_readable.js:166:9)
+    at Socket.Readable.push (_stream_readable.js:128:10)
+    at TCP.onread (net.js:529:21)
+Possibly unhandled SequelizeDatabaseError: operator does not exist: character = bigint
+    at module.exports.Query.formatError (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/lib/dialects/postgres/query.js:419:16)
+    at null.<anonymous> (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/lib/dialects/postgres/query.js:106:21)
+    at emit (events.js:95:17)
+    at Query.handleError (/home/student/UMass-Bookshare/bookapp/node_modules/pg/lib/query.js:99:8)
+    at null.<anonymous> (/home/student/UMass-Bookshare/bookapp/node_modules/pg/lib/client.js:166:26)
+    at emit (events.js:95:17)
+    at Socket.<anonymous> (/home/student/UMass-Bookshare/bookapp/node_modules/pg/lib/connection.js:109:12)
+    at Socket.emit (events.js:95:17)
+    at Socket.<anonymous> (_stream_readable.js:765:14)
+    at Socket.emit (events.js:92:17)
+    at emitReadable_ (_stream_readable.js:427:10)
+    at emitReadable (_stream_readable.js:423:5)
+    at readableAddChunk (_stream_readable.js:166:9)
+    at Socket.Readable.push (_stream_readable.js:128:10)
+    at TCP.onread (net.js:529:21)
+Possibly unhandled SequelizeDatabaseError: operator does not exist: character = bigint
+    at module.exports.Query.formatError (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/lib/dialects/postgres/query.js:419:16)
+    at null.<anonymous> (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/lib/dialects/postgres/query.js:106:21)
+    at emit (events.js:95:17)
+    at Query.handleError (/home/student/UMass-Bookshare/bookapp/node_modules/pg/lib/query.js:99:8)
+    at null.<anonymous> (/home/student/UMass-Bookshare/bookapp/node_modules/pg/lib/client.js:166:26)
+    at emit (events.js:95:17)
+    at Socket.<anonymous> (/home/student/UMass-Bookshare/bookapp/node_modules/pg/lib/connection.js:109:12)
+    at Socket.emit (events.js:95:17)
+    at Socket.<anonymous> (_stream_readable.js:765:14)
+    at Socket.emit (events.js:92:17)
+    at emitReadable_ (_stream_readable.js:427:10)
+    at emitReadable (_stream_readable.js:423:5)
+    at readableAddChunk (_stream_readable.js:166:9)
+    at Socket.Readable.push (_stream_readable.js:128:10)
+    at TCP.onread (net.js:529:21)
+Executing (40307e79-4770-438e-97f3-cf0fe5cd738b): SET SESSION TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+    ✓ search a book
+Executing (default): SELECT * FROM book WHERE isbn10 = 'HARRY' OR isbn13 = 'HARRY' OR UPPER(title) LIKE '%HARRY%' OR UPPER(author) LIKE '%HARRY%';
+Executing (default): SELECT * FROM users WHERE UPPER(username) LIKE '%HARRY%';
+Executing (default): SELECT * FROM book WHERE isbn10 = 'POTTER' OR isbn13 = 'POTTER' OR UPPER(title) LIKE '%POTTER%' OR UPPER(author) LIKE '%POTTER%';
+Executing (40307e79-4770-438e-97f3-cf0fe5cd738b): SET autocommit = 1;
+Executing (default): SELECT * FROM users WHERE UPPER(username) LIKE '%POTTER%';
+Unhandled rejection TypeError: Cannot call method 'render' of undefined
+    at /home/student/UMass-Bookshare/bookapp/node_modules/search.js:41:14
+    at tryCatcher (/home/student/UMass-Bookshare/bookapp/node_modules/bluebird/js/main/util.js:24:31)
+    at Promise._settlePromiseFromHandler (/home/student/UMass-Bookshare/bookapp/node_modules/bluebird/js/main/promise.js:454:31)
+    at Promise._settlePromiseAt (/home/student/UMass-Bookshare/bookapp/node_modules/bluebird/js/main/promise.js:530:18)
+    at Promise._settlePromises (/home/student/UMass-Bookshare/bookapp/node_modules/bluebird/js/main/promise.js:646:14)
+    at Async._drainQueue (/home/student/UMass-Bookshare/bookapp/node_modules/bluebird/js/main/async.js:175:16)
+    at Async._drainQueues (/home/student/UMass-Bookshare/bookapp/node_modules/bluebird/js/main/async.js:185:10)
+    at Async.drainQueues (/home/student/UMass-Bookshare/bookapp/node_modules/bluebird/js/main/async.js:15:14)
+    at process._tickCallback (node.js:448:13)
+Executing (40307e79-4770-438e-97f3-cf0fe5cd738b): SELECT "listid", "username", "isbn13", "forrent", "rentprice", "forsale", "sellprice", "forborrow", "available", "description", "listdate" FROM "listing" AS "listing" WHERE "listing"."listid" = '9f7862d6-722e-e72a-4388-78dcba37';
+Unhandled rejection TypeError: Cannot call method 'render' of undefined
+    at /home/student/UMass-Bookshare/bookapp/node_modules/search.js:41:14
+    at tryCatcher (/home/student/UMass-Bookshare/bookapp/node_modules/bluebird/js/main/util.js:24:31)
+    at Promise._settlePromiseFromHandler (/home/student/UMass-Bookshare/bookapp/node_modules/bluebird/js/main/promise.js:454:31)
+    at Promise._settlePromiseAt (/home/student/UMass-Bookshare/bookapp/node_modules/bluebird/js/main/promise.js:530:18)
+    at Promise._settlePromises (/home/student/UMass-Bookshare/bookapp/node_modules/bluebird/js/main/promise.js:646:14)
+    at Async._drainQueue (/home/student/UMass-Bookshare/bookapp/node_modules/bluebird/js/main/async.js:175:16)
+    at Async._drainQueues (/home/student/UMass-Bookshare/bookapp/node_modules/bluebird/js/main/async.js:185:10)
+    at Async.drainQueues (/home/student/UMass-Bookshare/bookapp/node_modules/bluebird/js/main/async.js:15:14)
+    at process._tickCallback (node.js:448:13)
+undefined Eri Banno
+{ language: '',
+  publisher_id: 'the_japan_times',
+  author_data: 
+   [ { name: 'Eri Banno', id: 'eri_banno' },
+     { id: 'yoko_ikeda', name: 'Yoko Ikeda' },
+     { name: 'Yutaka Ohno', id: 'yutaka_ohno' },
+     { name: 'Chikako Shinagawa', id: 'chikako_shinagawa' },
+     { name: 'Kyoko Tokashiki', id: 'kyoko_tokashiki' } ],
+  physical_description_text: '7.2"x10.2"x1.0"; 1.9 lb; 382 pages',
+  isbn13: '9784789014403',
+  edition_info: 'Paperback; 2011',
+  dewey_decimal: '',
+  subject_ids: [],
+  awards_text: '',
+  marc_enc_level: '~',
+  title: 'Genki I',
+  urls_text: '',
+  dewey_normal: '0',
+  title_latin: 'Genki I',
+  notes: '',
+  publisher_text: 'The Japan Times',
+  publisher_name: 'The Japan Times',
+  summary: '',
+  book_id: 'genki_i',
+  title_long: 'Genki I (Second Edition) an Integrated Course in Elementary Japanese (Volume 1)',
+  isbn10: '4789014401',
+  lcc_number: '' }
+Executing (0e3c2203-b47a-4277-9b1b-bc0a24b7faba): START TRANSACTION;
+Executing (0e3c2203-b47a-4277-9b1b-bc0a24b7faba): SET SESSION TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+
+  addBookWish
+Executing (0e3c2203-b47a-4277-9b1b-bc0a24b7faba): SET autocommit = 1;
+Executing (0e3c2203-b47a-4277-9b1b-bc0a24b7faba): SELECT "title", "author", "isbn10", "isbn13", "publicationdate", "version", "cover" FROM "book" AS "Book" WHERE "Book"."isbn13" = 9784789014401;
+Executing (0e3c2203-b47a-4277-9b1b-bc0a24b7faba): COMMIT;
+    ✓ add a book to wishlist by providing ISBN
+Executing (default): Select book.author, book.title, book.isbn13, Wishlist.username,users.firstname,users.lastname, users.email FROM Wishlist INNER JOIN book ON Wishlist.isbn13=book.isbn13 INNER JOIN users ON Wishlist.username=users.username WHERE Wishlist.isbn13= '9784789014401';
+Executing (d5a79ea1-95b5-434c-bfbb-88218071a821): START TRANSACTION;
+Possibly unhandled SequelizeDatabaseError: operator does not exist: character = bigint
+    at module.exports.Query.formatError (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/lib/dialects/postgres/query.js:419:16)
+    at null.<anonymous> (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/lib/dialects/postgres/query.js:106:21)
+    at emit (events.js:95:17)
+    at Query.handleError (/home/student/UMass-Bookshare/bookapp/node_modules/pg/lib/query.js:99:8)
+    at null.<anonymous> (/home/student/UMass-Bookshare/bookapp/node_modules/pg/lib/client.js:166:26)
+    at emit (events.js:95:17)
+    at Socket.<anonymous> (/home/student/UMass-Bookshare/bookapp/node_modules/pg/lib/connection.js:109:12)
+    at Socket.emit (events.js:95:17)
+    at Socket.<anonymous> (_stream_readable.js:765:14)
+    at Socket.emit (events.js:92:17)
+    at emitReadable_ (_stream_readable.js:427:10)
+    at emitReadable (_stream_readable.js:423:5)
+    at readableAddChunk (_stream_readable.js:166:9)
+    at Socket.Readable.push (_stream_readable.js:128:10)
+    at TCP.onread (net.js:529:21)
+Possibly unhandled SequelizeDatabaseError: operator does not exist: character = bigint
+    at module.exports.Query.formatError (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/lib/dialects/postgres/query.js:419:16)
+    at null.<anonymous> (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/lib/dialects/postgres/query.js:106:21)
+    at emit (events.js:95:17)
+    at Query.handleError (/home/student/UMass-Bookshare/bookapp/node_modules/pg/lib/query.js:99:8)
+    at null.<anonymous> (/home/student/UMass-Bookshare/bookapp/node_modules/pg/lib/client.js:166:26)
+    at emit (events.js:95:17)
+    at Socket.<anonymous> (/home/student/UMass-Bookshare/bookapp/node_modules/pg/lib/connection.js:109:12)
+    at Socket.emit (events.js:95:17)
+    at Socket.<anonymous> (_stream_readable.js:765:14)
+    at Socket.emit (events.js:92:17)
+    at emitReadable_ (_stream_readable.js:427:10)
+    at emitReadable (_stream_readable.js:423:5)
+    at readableAddChunk (_stream_readable.js:166:9)
+    at Socket.Readable.push (_stream_readable.js:128:10)
+    at TCP.onread (net.js:529:21)
+Possibly unhandled SequelizeDatabaseError: operator does not exist: character = bigint
+    at module.exports.Query.formatError (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/lib/dialects/postgres/query.js:419:16)
+    at null.<anonymous> (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/lib/dialects/postgres/query.js:106:21)
+    at emit (events.js:95:17)
+    at Query.handleError (/home/student/UMass-Bookshare/bookapp/node_modules/pg/lib/query.js:99:8)
+    at null.<anonymous> (/home/student/UMass-Bookshare/bookapp/node_modules/pg/lib/client.js:166:26)
+    at emit (events.js:95:17)
+    at Socket.<anonymous> (/home/student/UMass-Bookshare/bookapp/node_modules/pg/lib/connection.js:109:12)
+    at Socket.emit (events.js:95:17)
+    at Socket.<anonymous> (_stream_readable.js:765:14)
+    at Socket.emit (events.js:92:17)
+    at emitReadable_ (_stream_readable.js:427:10)
+    at emitReadable (_stream_readable.js:423:5)
+    at readableAddChunk (_stream_readable.js:166:9)
+    at Socket.Readable.push (_stream_readable.js:128:10)
+    at TCP.onread (net.js:529:21)
+Executing (d5a79ea1-95b5-434c-bfbb-88218071a821): SET SESSION TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+Executing (d5a79ea1-95b5-434c-bfbb-88218071a821): SET autocommit = 1;
+
+  addBookCover
+Executing (d5a79ea1-95b5-434c-bfbb-88218071a821): SELECT "listid", "username", "isbn13", "forrent", "rentprice", "forsale", "sellprice", "forborrow", "available", "description", "listdate" FROM "listing" AS "listing" WHERE "listing"."listid" = '3d83d15b-2f2f-007d-f95e-99392637';
+Executing (40307e79-4770-438e-97f3-cf0fe5cd738b): CREATE OR REPLACE FUNCTION pg_temp.testfunc(OUT response "listing", OUT sequelize_caught_exception text) RETURNS RECORD AS $func_244d00f68e024f2ea7f99c2c92732c12$ BEGIN INSERT INTO "listing" ("listid","username","isbn13","forrent","rentprice","forsale","sellprice","available","listdate") VALUES ('9f7862d6-722e-e72a-4388-78dcba37','cute',9784789014401,false,false,false,true,true,'2015-04-30 16:29:51.000 +00:00') RETURNING * INTO response; EXCEPTION WHEN unique_violation THEN GET STACKED DIAGNOSTICS sequelize_caught_exception = PG_EXCEPTION_DETAIL; END $func_244d00f68e024f2ea7f99c2c92732c12$ LANGUAGE plpgsql; SELECT (testfunc.response).*, testfunc.sequelize_caught_exception FROM pg_temp.testfunc(); DROP FUNCTION IF EXISTS pg_temp.testfunc();
+Executing (d5a79ea1-95b5-434c-bfbb-88218071a821): CREATE OR REPLACE FUNCTION pg_temp.testfunc(OUT response "listing", OUT sequelize_caught_exception text) RETURNS RECORD AS $func_fba62a4f9dc74f77b9754f3d9545b0e0$ BEGIN INSERT INTO "listing" ("listid","username","isbn13","forrent","rentprice","forsale","sellprice","available","listdate") VALUES ('3d83d15b-2f2f-007d-f95e-99392637','testuser',9784789014401,false,false,false,true,true,'2015-04-30 16:29:51.000 +00:00') RETURNING * INTO response; EXCEPTION WHEN unique_violation THEN GET STACKED DIAGNOSTICS sequelize_caught_exception = PG_EXCEPTION_DETAIL; END $func_fba62a4f9dc74f77b9754f3d9545b0e0$ LANGUAGE plpgsql; SELECT (testfunc.response).*, testfunc.sequelize_caught_exception FROM pg_temp.testfunc(); DROP FUNCTION IF EXISTS pg_temp.testfunc();
+    ✓ add a Book cover by ISBN, returna link for image from google, it does not store local
+Executing (default): UPDATE book SET cover = '/images' WHERE isbn13 = '9784789014401';
+undefined Eri Banno
+{ dewey_normal: '0',
+  notes: '',
+  title_latin: 'Genki I',
+  isbn10: '4789014401',
+  lcc_number: '',
+  title_long: 'Genki I (Second Edition) an Integrated Course in Elementary Japanese (Volume 1)',
+  publisher_name: 'The Japan Times',
+  summary: '',
+  publisher_text: 'The Japan Times',
+  book_id: 'genki_i',
+  physical_description_text: '7.2"x10.2"x1.0"; 1.9 lb; 382 pages',
+  author_data: 
+   [ { name: 'Eri Banno', id: 'eri_banno' },
+     { id: 'yoko_ikeda', name: 'Yoko Ikeda' },
+     { id: 'yutaka_ohno', name: 'Yutaka Ohno' },
+     { name: 'Chikako Shinagawa', id: 'chikako_shinagawa' },
+     { name: 'Kyoko Tokashiki', id: 'kyoko_tokashiki' } ],
+  isbn13: '9784789014403',
+  language: '',
+  publisher_id: 'the_japan_times',
+  title: 'Genki I',
+  marc_enc_level: '~',
+  urls_text: '',
+  edition_info: 'Paperback; 2011',
+  awards_text: '',
+  subject_ids: [],
+  dewey_decimal: '' }
+backend addBookWish
+Executing (ada27ce5-7434-42f8-bd11-4d121e792336): START TRANSACTION;
+Executing (ada27ce5-7434-42f8-bd11-4d121e792336): SET SESSION TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+Executing (ada27ce5-7434-42f8-bd11-4d121e792336): SET autocommit = 1;
+
+  viewListing
+Executing (ada27ce5-7434-42f8-bd11-4d121e792336): SELECT "title", "author", "isbn10", "isbn13", "publicationdate", "version", "cover" FROM "book" AS "Book" WHERE "Book"."isbn13" = 9784789014401;
+Executing (ada27ce5-7434-42f8-bd11-4d121e792336): COMMIT;
+backend addBookWish
+Executing (default): insert into Wishlist values('testuser','9784789014401','04/30/2015');
+Possibly unhandled SequelizeDatabaseError: operator does not exist: character = bigint
+    at module.exports.Query.formatError (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/lib/dialects/postgres/query.js:419:16)
+    at null.<anonymous> (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/lib/dialects/postgres/query.js:106:21)
+    at emit (events.js:95:17)
+    at Query.handleError (/home/student/UMass-Bookshare/bookapp/node_modules/pg/lib/query.js:99:8)
+    at null.<anonymous> (/home/student/UMass-Bookshare/bookapp/node_modules/pg/lib/client.js:166:26)
+    at emit (events.js:95:17)
+    at Socket.<anonymous> (/home/student/UMass-Bookshare/bookapp/node_modules/pg/lib/connection.js:109:12)
+    at Socket.emit (events.js:95:17)
+    at Socket.<anonymous> (_stream_readable.js:765:14)
+    at Socket.emit (events.js:92:17)
+    at emitReadable_ (_stream_readable.js:427:10)
+    at emitReadable (_stream_readable.js:423:5)
+    at readableAddChunk (_stream_readable.js:166:9)
+    at Socket.Readable.push (_stream_readable.js:128:10)
+    at TCP.onread (net.js:529:21)
+Possibly unhandled SequelizeDatabaseError: operator does not exist: character = bigint
+    at module.exports.Query.formatError (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/lib/dialects/postgres/query.js:419:16)
+    at null.<anonymous> (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/lib/dialects/postgres/query.js:106:21)
+    at emit (events.js:95:17)
+    at Query.handleError (/home/student/UMass-Bookshare/bookapp/node_modules/pg/lib/query.js:99:8)
+    at null.<anonymous> (/home/student/UMass-Bookshare/bookapp/node_modules/pg/lib/client.js:166:26)
+    at emit (events.js:95:17)
+    at Socket.<anonymous> (/home/student/UMass-Bookshare/bookapp/node_modules/pg/lib/connection.js:109:12)
+    at Socket.emit (events.js:95:17)
+    at Socket.<anonymous> (_stream_readable.js:765:14)
+    at Socket.emit (events.js:92:17)
+    at emitReadable_ (_stream_readable.js:427:10)
+    at emitReadable (_stream_readable.js:423:5)
+    at readableAddChunk (_stream_readable.js:166:9)
+    at Socket.Readable.push (_stream_readable.js:128:10)
+    at TCP.onread (net.js:529:21)
+Possibly unhandled SequelizeDatabaseError: operator does not exist: character = bigint
+    at module.exports.Query.formatError (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/lib/dialects/postgres/query.js:419:16)
+    at null.<anonymous> (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/lib/dialects/postgres/query.js:106:21)
+    at emit (events.js:95:17)
+    at Query.handleError (/home/student/UMass-Bookshare/bookapp/node_modules/pg/lib/query.js:99:8)
+    at null.<anonymous> (/home/student/UMass-Bookshare/bookapp/node_modules/pg/lib/client.js:166:26)
+    at emit (events.js:95:17)
+    at Socket.<anonymous> (/home/student/UMass-Bookshare/bookapp/node_modules/pg/lib/connection.js:109:12)
+    at Socket.emit (events.js:95:17)
+    at Socket.<anonymous> (_stream_readable.js:765:14)
+    at Socket.emit (events.js:92:17)
+    at emitReadable_ (_stream_readable.js:427:10)
+    at emitReadable (_stream_readable.js:423:5)
+    at readableAddChunk (_stream_readable.js:166:9)
+    at Socket.Readable.push (_stream_readable.js:128:10)
+    at TCP.onread (net.js:529:21)
+    ✓ post your book listing
+Executing (default): Select listing.*, book.author, book.title, book.cover,book.isbn13, book.version FROM listing INNER JOIN book ON book.isbn13=listing.isbn13 WHERE listing.isbn13 = '9784789014401' ORDER BY listdate desc;
+Possibly unhandled TypeError: Cannot call method 'render' of undefined
+    at /home/student/UMass-Bookshare/bookapp/node_modules/DB_listing.js:254:9
+    at tryCatch1 (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/node_modules/bluebird/js/main/util.js:45:21)
+    at Promise._callHandler (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/node_modules/bluebird/js/main/promise.js:571:13)
+    at Promise._settlePromiseFromHandler (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/node_modules/bluebird/js/main/promise.js:581:18)
+    at Promise._settlePromiseAt (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/node_modules/bluebird/js/main/promise.js:713:18)
+    at Promise._settlePromiseAt (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/lib/promise.js:76:18)
+    at Promise._settlePromises (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/node_modules/bluebird/js/main/promise.js:854:14)
+    at Async._consumeFunctionBuffer (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/node_modules/bluebird/js/main/async.js:85:12)
+    at Async.consumeFunctionBuffer (/home/student/UMass-Bookshare/bookapp/node_modules/sequelize/node_modules/bluebird/js/main/async.js:40:14)
+    at process._tickCallback (node.js:448:13)
+
+  Listing
+    ✓ find a user listing 
+
+  deletelisting
+    ✓ delete a listing you made
+
+
+  18 passing (2s)
