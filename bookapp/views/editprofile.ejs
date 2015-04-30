@@ -4,6 +4,7 @@
   <title>Edit Profile</title>
   <% include includes/header.ejs %>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+  <link href="/stylesheets/editprofile.css" rel="stylesheet" type="text/css"/> 
 </head>
 
 <body>
@@ -26,8 +27,9 @@
 
         <!--Profile info-->
         <div class="col-md-5">
+
               <!-- Sign Up Form -->
-    <div class="col-md-5" style="width: 400px">
+    <div class="col-md-5">
       <!-- <form action="/"> -->
       <form action="/editprofile" method="post">
         <div class="form-horizontal">
@@ -70,7 +72,7 @@
 
           <div class="form-group">
             <div class="col-sm-offset-4 col-sm-8">
-              <button type="submit" class="form-control btn btn-warning btn-lg">Submit</button>
+              <button type="submit" class="form-control btn btn-success btn-md">Submit</button>
             </div> <!--col-sm-8-->
           </div> <!--form-group-->
 

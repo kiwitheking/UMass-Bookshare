@@ -1,20 +1,18 @@
-body {
-    /*background-color: #555555;*/
-  /*background: #000000; */
-  /*-webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;*/
+.thumbnail > img {
+	width: 100%;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 15px;
+	margin-bottom: 5px;
 }
 
-#wrapper {
-	/*width: 100%;*/
-	/*max-width: 100%;*/
-	/*min-width: 800px;*/
-	/*margin: 10px auto;*/
+.hideoverflow {
+	white-space:nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis; 
 }
 
-#columns {
+
+/*#columns {
 	-webkit-column-count: 3;
 	-webkit-column-gap: 10px;
 	-webkit-column-fill: auto;
@@ -24,9 +22,9 @@ body {
 	column-count: 3;
 	column-gap: 15px;
 	column-fill: auto;
-}
+}*/
 
-.pin {
+/*.pin {
 	display: inline-block;
 	background: #FEFEFE;
 	border: 2px solid #FAFAFA;
@@ -57,7 +55,7 @@ body {
 	font: 12px/18px Arial, sans-serif;
 	color: #333;
 	margin: 0;
-}
+}*/
 
 /*@media (min-width: 960px) {
 	#columns {

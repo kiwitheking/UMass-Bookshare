@@ -1,4 +1,22 @@
+/* limit profile pic size */
+.col-md-5 > img {
+	max-height: 400px;
+	max-width: 300px;
+}
 
+.caption > h5{
+	white-space:nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis; 
+}
+
+.caption > p{
+	white-space:nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis; 
+}
+
+/*
 #columns {
 	-webkit-column-count: 3;
 	-webkit-column-gap: 10px;
@@ -47,4 +65,4 @@
 .pin > img {
 	height: 275px;
 	width: 200px;
-}
+}*/

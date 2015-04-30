@@ -64,26 +64,22 @@
           <!-- Selling Snippets -->
           <h2>Selling</h2>
           <p><%= fname %> is selling these books...</p>
-          <div class="row placeholders">
-
-            <div class="col-sm-8">
-                <% for(var i = 0; i < selling.length; i++) { %>
-                  <%- include('partials/sellingsnippet.ejs', {data: selling[i]}) %>
-                <% } %>
-            </div>
-
-          </div> <!--row placeholders-->
+          <div class="row list-group placeholders"><div class="col-sm-8">
+            <% for(var i = 0; i < selling.length; i++) { %>
+              <%- include('partials/sellingsnippet.ejs', {data: selling[i]}) %>
+            <% } %>
+          </div></div> <!--row placeholders-->
 
           
           <!-- Add script to get different fields?? -->
           <!-- Wishlist Snippets -->
           <h2>Wishlist</h2>
           <p><%= fname %> is looking for these books...</p>
-          <div class="row placeholders">
-            <% for(var i = 0; i < wishList.length; i++) { %>
-              <%- include('partials/wishlistsnippet.ejs', {data: wishList[i]}) %>
+          <div class="row list-group placeholders"><div class="col-sm-8">
+            <% for(var i = 0; i < wishList.length; i++) { %>        
+                <%- include('partials/wishlistsnippet.ejs', {data: wishList[i]}) %>
             <% } %>
-          </div> <!--row placeholders wishlistsnips-->
+          </div></div> <!--row placeholders wishlistsnips-->
 
 
           <div class="col-md-5">
