@@ -16,7 +16,7 @@ From the home screen, enter a username and password and by pressing the "Sign In
 
 ##Instructions for installation
 
-Note:  If you are on an ubuntu system setup can be run via running ./install.sh in the UMass-Bookshare folder.  THi will setup the database, node and any other necessary libraries
+Note:  If you are on an ubuntu system setup can be automatically run via entering ./install.sh in the terminal while in the UMass-Bookshare folder.  This will setup the database, node and any other necessary libraries
 
 ### Setting up database:
 
