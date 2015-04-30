@@ -33,7 +33,7 @@ echo "exports.user = \"$USER\";" >> ./UMass-Bookshare/bookapp/node_modules/serve
 echo "exports.pass = \"$PASS\";" >> ./UMass-Bookshare/bookapp/node_modules/server.conf
 
 echo Enter your postgres server password when prompted
-psql -U $USER -d $DB --file="./UMass-Bookshare/bookapp/schema/ProjectSchema.sql"
+psql -U $USER -d "$DB" --file="./UMass-Bookshare/bookapp/schema/ProjectSchema.sql"
 
 cd ./UMass-Bookshare/bookapp
 sudo apt-get install nodejs-legacy
