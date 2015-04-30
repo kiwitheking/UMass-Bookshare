@@ -1,12 +1,23 @@
-<!DOCTYPE html>
-<html><head>
-  <title>Upload Photo</title>
-<!--   <% include includes/header.ejs %> -->
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+<html>
+<head>
+<title>Upload Photo</title>
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+<% include /includes/header.ejs %>
+<% include /partials/navbarlogin.ejs %>
+</script>
 </head>
 
 <body>
- <!--  <% include partials/navbarlogin.ejs %> -->
+  <div id="header"></div>
+  <div id="footer"></div>
+  <script> 
+  $(function(){
+  $("#header").load("includes/header.ejs"); 
+  $("#footer").load("partials/navbarlogin.ejs"); 
+});
+</script>
+
 	<form method="post" action ="/images/upload" enctype="multipart/form-data">
 	  <input type="text" name ="name" value ="001"/>
 	  <input type="file" name ="images" />
